@@ -1,0 +1,367 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-04-16",
+  "symptoms": [
+    {
+      "id": "headache",
+      "nameJa": "頭痛",
+      "nameEn": "Headache",
+      "icon": "🤕",
+      "description": "緊張型頭痛・偏頭痛の緩和に。首・肩の筋肉をほぐし、血行を促進します。",
+      "descriptionEn": "Relieve tension headaches and migraines by releasing neck and shoulder tension.",
+      "recommendedPoses": [
+        {
+          "poseId": "childs_pose",
+          "reason": "前頭部への圧迫が神経を鎮静。首・肩の緊張を解放します。",
+          "reasonEn": "Forehead pressure calms the nervous system and releases neck tension.",
+          "duration": 5
+        },
+        {
+          "poseId": "standing_forward_bend",
+          "reason": "頭部への血流を増やし、首背面の筋肉を伸ばします。",
+          "reasonEn": "Increases blood flow to the head and stretches the back of the neck.",
+          "duration": 3
+        },
+        {
+          "poseId": "corpse_pose",
+          "reason": "完全な弛緩で緊張性頭痛の根本原因を取り除きます。",
+          "reasonEn": "Complete relaxation removes the root cause of tension headaches.",
+          "duration": 10
+        },
+        {
+          "poseId": "cat_cow",
+          "reason": "脊椎から首まで連動するリズムストレッチで血行を改善します。",
+          "reasonEn": "Rhythmic stretch from spine to neck improves circulation.",
+          "duration": 5
+        },
+        {
+          "poseId": "seated_twist",
+          "reason": "脊椎の緊張を解放し、神経系のバランスを整えます。",
+          "reasonEn": "Releases spinal tension and balances the nervous system.",
+          "duration": 3
+        }
+      ],
+      "avoidPoses": ["headstand"],
+      "tips": [
+        "痛みが強い場合はポーズを中断し、安静にしてください。",
+        "呼吸を止めず、鼻からゆっくり深く呼吸しましょう。",
+        "偏頭痛の前兆がある場合は逆転ポーズを避けてください。"
+      ],
+      "tipsEn": [
+        "Stop if pain intensifies; rest quietly.",
+        "Breathe slowly through the nose throughout.",
+        "Avoid inversions if you feel a migraine coming."
+      ]
+    },
+    {
+      "id": "menstrual_pain",
+      "nameJa": "生理痛",
+      "nameEn": "Menstrual Pain",
+      "icon": "🌸",
+      "description": "骨盤周辺の血流を改善し、子宮の痙攣を和らげます。ホルモンバランスも整えます。",
+      "descriptionEn": "Improve pelvic circulation and ease uterine cramping while balancing hormones.",
+      "recommendedPoses": [
+        {
+          "poseId": "reclining_bound_angle",
+          "reason": "骨盤底を広げ、子宮への血流を増やして痙攣を和らげます。",
+          "reasonEn": "Opens the pelvic floor and increases uterine blood flow to ease cramps.",
+          "duration": 10
+        },
+        {
+          "poseId": "bound_angle",
+          "reason": "内腿・骨盤内臓器を刺激し、月経の流れをスムーズにします。",
+          "reasonEn": "Stimulates inner thighs and pelvic organs for smoother menstrual flow.",
+          "duration": 5
+        },
+        {
+          "poseId": "childs_pose",
+          "reason": "腰仙骨部を伸ばし、腰部の圧迫感を軽減します。",
+          "reasonEn": "Stretches the lumbosacral region and relieves lower back pressure.",
+          "duration": 5
+        },
+        {
+          "poseId": "legs_up_wall",
+          "reason": "脚を上げることで骨盤内の血液循環を逆転し、浮腫を軽減します。",
+          "reasonEn": "Reverses pelvic blood pooling and reduces bloating.",
+          "duration": 10
+        },
+        {
+          "poseId": "cat_cow",
+          "reason": "骨盤のリズミカルな運動が子宮周囲の筋肉をほぐします。",
+          "reasonEn": "Rhythmic pelvic movement loosens muscles around the uterus.",
+          "duration": 5
+        }
+      ],
+      "avoidPoses": ["headstand", "boat_pose", "upward_bow"],
+      "tips": [
+        "生理初日・2日目は強いポーズを避け、回復系ポーズに集中しましょう。",
+        "腹部を圧迫するポーズは痛みを悪化させる場合があります。",
+        "温かい環境で行うと筋肉がほぐれやすくなります。"
+      ],
+      "tipsEn": [
+        "Focus on restorative poses on days 1–2.",
+        "Poses compressing the abdomen may worsen cramps.",
+        "Practicing in a warm environment helps muscles relax."
+      ]
+    },
+    {
+      "id": "depression",
+      "nameJa": "うつ・気分の落ち込み",
+      "nameEn": "Low Mood / Depression",
+      "icon": "🌤",
+      "description": "胸を開き、エネルギーを活性化するポーズで気力を回復します。呼吸法との組み合わせが効果的。",
+      "descriptionEn": "Heart-opening poses and energizing sequences restore vitality and lift mood.",
+      "recommendedPoses": [
+        {
+          "poseId": "sun_salutation",
+          "reason": "全身を動かす連続ポーズがエンドルフィンを分泌し、気分を高揚させます。",
+          "reasonEn": "Full-body movement sequence releases endorphins and elevates mood.",
+          "duration": 10
+        },
+        {
+          "poseId": "upward_bow",
+          "reason": "胸・心臓を大きく開き、感情的な開放感をもたらします。",
+          "reasonEn": "Opens the chest and heart, creating emotional release and openness.",
+          "duration": 3
+        },
+        {
+          "poseId": "cobra_pose",
+          "reason": "胸腔を広げて呼吸を深め、前向きなエネルギーを呼び込みます。",
+          "reasonEn": "Expands the chest for deeper breathing and positive energy.",
+          "duration": 3
+        },
+        {
+          "poseId": "tree_pose",
+          "reason": "バランスに集中することで「今ここ」への意識が高まり、反芻思考を断ちます。",
+          "reasonEn": "Balance focus anchors attention to the present, breaking rumination.",
+          "duration": 5
+        },
+        {
+          "poseId": "easy_pose",
+          "reason": "瞑想姿勢での深呼吸が副交感神経を優位にし、心を落ち着けます。",
+          "reasonEn": "Deep breathing in meditation pose activates the parasympathetic nervous system.",
+          "duration": 10
+        }
+      ],
+      "avoidPoses": [],
+      "tips": [
+        "強制せず、できる範囲でゆっくり始めましょう。",
+        "呼吸に意識を向けると、マインドフルネス効果が高まります。",
+        "朝の太陽礼拝は特に気分向上に効果的です。",
+        "重度のうつの場合は医療専門家への相談を優先してください。"
+      ],
+      "tipsEn": [
+        "Start gently without forcing anything.",
+        "Focusing on breath enhances mindfulness benefits.",
+        "Morning sun salutation is especially effective for mood.",
+        "Seek professional help for severe depression."
+      ]
+    },
+    {
+      "id": "shoulder_stiffness",
+      "nameJa": "肩こり",
+      "nameEn": "Shoulder Stiffness",
+      "icon": "💆",
+      "description": "肩甲骨周辺の筋肉をほぐし、首・肩の血行を改善します。デスクワーク後に特に効果的。",
+      "descriptionEn": "Release shoulder blade tension and improve neck-shoulder circulation, ideal after desk work.",
+      "recommendedPoses": [
+        {
+          "poseId": "downward_dog",
+          "reason": "肩甲骨を外転・上方回転させ、菱形筋・僧帽筋の緊張を解放します。",
+          "reasonEn": "Abducts and upwardly rotates shoulder blades, releasing trapezius tension.",
+          "duration": 5
+        },
+        {
+          "poseId": "cat_cow",
+          "reason": "胸椎の屈曲・伸展が肩甲骨周囲筋を連動してほぐします。",
+          "reasonEn": "Thoracic flexion-extension mobilizes all shoulder blade muscles.",
+          "duration": 5
+        },
+        {
+          "poseId": "cobra_pose",
+          "reason": "前方に巻いた肩を開き、大胸筋・小胸筋の短縮を改善します。",
+          "reasonEn": "Opens rounded shoulders and lengthens pectoralis major and minor.",
+          "duration": 3
+        },
+        {
+          "poseId": "seated_twist",
+          "reason": "胸椎の回旋可動性を回復し、肩甲骨の動きを改善します。",
+          "reasonEn": "Restores thoracic rotation and improves scapular mobility.",
+          "duration": 3
+        },
+        {
+          "poseId": "standing_forward_bend",
+          "reason": "腕を背中で組んで前屈することで肩関節後面を深くストレッチします。",
+          "reasonEn": "Arms clasped behind the back deepens the posterior shoulder stretch.",
+          "duration": 3
+        }
+      ],
+      "avoidPoses": [],
+      "tips": [
+        "肩を耳に近づける緊張パターンを意識して解放しましょう。",
+        "呼吸のたびに肩の力を抜くイメージで行います。",
+        "1時間に1回、デスクから離れてポーズを取ることをお勧めします。"
+      ],
+      "tipsEn": [
+        "Consciously release the habit of raising shoulders toward ears.",
+        "Imagine dropping shoulder tension with each exhale.",
+        "Take a break from your desk every hour to practice."
+      ]
+    },
+    {
+      "id": "desk_work_fatigue",
+      "nameJa": "デスクワーク疲れ",
+      "nameEn": "Desk Work Fatigue",
+      "icon": "💻",
+      "description": "長時間の座位で固まった全身をほぐします。5〜10分でリセットできるシーケンス。",
+      "descriptionEn": "Un-freeze the body after prolonged sitting. A 5–10 min reset sequence.",
+      "recommendedPoses": [
+        {
+          "poseId": "cat_cow",
+          "reason": "脊椎全体を波のように動かし、椎間板への栄養補給を促します。",
+          "reasonEn": "Wave-like spinal movement nourishes the intervertebral discs.",
+          "duration": 5
+        },
+        {
+          "poseId": "downward_dog",
+          "reason": "ハムストリング・ふくらはぎを伸ばし、下半身の血流を回復します。",
+          "reasonEn": "Stretches hamstrings and calves, restoring lower-body circulation.",
+          "duration": 3
+        },
+        {
+          "poseId": "standing_forward_bend",
+          "reason": "腰椎の圧縮を解放し、脳への血流を増やして頭をすっきりさせます。",
+          "reasonEn": "Decompresses the lumbar spine and increases blood flow to the brain.",
+          "duration": 3
+        },
+        {
+          "poseId": "seated_twist",
+          "reason": "脊椎を回旋させ、内臓マッサージ効果と消化促進をもたらします。",
+          "reasonEn": "Rotates the spine for internal organ massage and digestion support.",
+          "duration": 3
+        },
+        {
+          "poseId": "legs_up_wall",
+          "reason": "脚の浮腫を解消し、疲労物質を体幹へ回収します。",
+          "reasonEn": "Reduces leg swelling and drains metabolic waste back to the core.",
+          "duration": 5
+        }
+      ],
+      "avoidPoses": [],
+      "tips": [
+        "ランチ後や午後3時頃の眠気が来る時間帯に特に効果的です。",
+        "オフィスでも椅子を使ってできる簡易バージョンがあります（💻タブ参照）。",
+        "目の疲れには、ポーズ後に眼球体操を追加しましょう。"
+      ],
+      "tipsEn": [
+        "Especially effective after lunch or during the 3pm energy slump.",
+        "Office chair versions are available in the Desk tab.",
+        "Add eye exercises after poses to relieve eye strain."
+      ]
+    },
+    {
+      "id": "insomnia",
+      "nameJa": "不眠・睡眠の質低下",
+      "nameEn": "Insomnia / Poor Sleep",
+      "icon": "🌙",
+      "description": "就寝前30分に行う副交感神経活性化シーケンス。体温を穏やかに下げ、眠りを誘います。",
+      "descriptionEn": "Pre-sleep parasympathetic sequence to gently lower body temperature and invite sleep.",
+      "recommendedPoses": [
+        {
+          "poseId": "legs_up_wall",
+          "reason": "静脈還流を促し、心拍数を下げてリラクゼーション反応を誘発します。",
+          "reasonEn": "Promotes venous return, lowers heart rate, and triggers relaxation response.",
+          "duration": 10
+        },
+        {
+          "poseId": "reclining_bound_angle",
+          "reason": "骨盤・腹部を開放し、ストレスで緊張した横隔膜を解放します。",
+          "reasonEn": "Opens pelvis and abdomen, releasing a stress-tightened diaphragm.",
+          "duration": 10
+        },
+        {
+          "poseId": "childs_pose",
+          "reason": "胎児姿勢に似た安心感が安全信号を神経系に送ります。",
+          "reasonEn": "Fetal-like position sends safety signals to the nervous system.",
+          "duration": 5
+        },
+        {
+          "poseId": "seated_forward_bend",
+          "reason": "迷走神経を刺激し、深い副交感神経反応を引き出します。",
+          "reasonEn": "Stimulates the vagus nerve, eliciting a deep parasympathetic response.",
+          "duration": 5
+        },
+        {
+          "poseId": "corpse_pose",
+          "reason": "意識的な弛緩練習は入眠時間を短縮することが研究で示されています。",
+          "reasonEn": "Conscious relaxation practice has been shown to reduce sleep onset time.",
+          "duration": 15
+        }
+      ],
+      "avoidPoses": ["sun_salutation", "upward_bow", "headstand"],
+      "tips": [
+        "照明を暗くした環境で行いましょう。",
+        "スマートフォンは就寝1時間前からオフにすることを推奨します。",
+        "4-7-8呼吸法（吸4・止7・吐8）と組み合わせると効果的です。",
+        "室温を18〜22℃に保つと眠気が来やすくなります。"
+      ],
+      "tipsEn": [
+        "Practice in a dimly lit room.",
+        "Recommended to turn off phones 1 hour before bed.",
+        "Combine with 4-7-8 breathing (inhale 4, hold 7, exhale 8).",
+        "Keep room temperature 18–22°C to promote drowsiness."
+      ]
+    },
+    {
+      "id": "lower_back_pain",
+      "nameJa": "腰痛",
+      "nameEn": "Lower Back Pain",
+      "icon": "🦴",
+      "description": "腰椎周囲の筋肉バランスを整え、椎間板への圧力を軽減します。慢性腰痛に特に有効。",
+      "descriptionEn": "Rebalance lumbar muscles and reduce disc pressure. Especially effective for chronic pain.",
+      "recommendedPoses": [
+        {
+          "poseId": "cat_cow",
+          "reason": "腰椎の屈曲・伸展で椎間板への栄養供給を改善します。",
+          "reasonEn": "Lumbar flexion-extension improves disc nutrition and mobility.",
+          "duration": 5
+        },
+        {
+          "poseId": "childs_pose",
+          "reason": "腰仙骨部を穏やかに伸ばし、脊椎起立筋の過緊張を解放します。",
+          "reasonEn": "Gently stretches the lumbosacral region and releases erector spinae tension.",
+          "duration": 5
+        },
+        {
+          "poseId": "bridge_pose",
+          "reason": "臀筋・ハムストリングを強化し、腰椎への負担を軽減します。",
+          "reasonEn": "Strengthens glutes and hamstrings to offload lumbar stress.",
+          "duration": 3
+        },
+        {
+          "poseId": "reclining_bound_angle",
+          "reason": "骨盤底筋・腸腰筋を解放し、腰痛の原因となる筋緊張を取り除きます。",
+          "reasonEn": "Releases pelvic floor and iliopsoas, removing muscle tension causing pain.",
+          "duration": 5
+        },
+        {
+          "poseId": "corpse_pose",
+          "reason": "中立脊椎ポジションでの完全弛緩が疼痛神経系を落ち着かせます。",
+          "reasonEn": "Complete relaxation in neutral spine calms the pain nervous system.",
+          "duration": 10
+        }
+      ],
+      "avoidPoses": ["boat_pose", "seated_forward_bend", "standing_forward_bend"],
+      "tips": [
+        "急性腰痛（ぎっくり腰発症48時間以内）はヨガを避け、安静にしてください。",
+        "痛みが片側だけ・足に放散する場合は医師に相談してください。",
+        "コアマッスル（腹横筋）の意識を保ちながら行いましょう。"
+      ],
+      "tipsEn": [
+        "Avoid yoga for acute pain (within 48 hours of onset); rest instead.",
+        "Consult a doctor if pain is one-sided or radiates to the leg.",
+        "Maintain transverse abdominis awareness throughout."
+      ]
+    }
+  ]
+}

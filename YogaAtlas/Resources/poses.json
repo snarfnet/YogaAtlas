@@ -1,0 +1,638 @@
+[
+  {
+    "id": "easy_pose",
+    "nameJa": "安楽座",
+    "nameEn": "Easy Pose",
+    "sanskrit": "Sukhasana",
+    "category": "seated",
+    "difficulty": 1,
+    "duration": "1-5分 / 1-5 minutes",
+    "benefits": [
+      "股関節を開く / Opens the hips",
+      "背骨を伸ばす / Lengthens the spine",
+      "グラウンディングと内なる静けさを促す / Promotes grounding and inner calm",
+      "瞑想の準備として最適 / Ideal preparation for meditation"
+    ],
+    "instructions": [
+      "床に座り、脚を交差させる / Sit on the floor and cross your legs",
+      "かかとをひざの下に置く / Place your feet directly below your knees",
+      "手のひらを上に向けてひざに置く / Rest your hands on your knees, palms facing up",
+      "坐骨を床に押し付け、頭頂部を天井に向けて伸ばす / Press hip bones into floor, reach crown of head upward",
+      "肩を落として胸を前に向ける / Drop shoulders down and back, press chest forward",
+      "顔・顎・おなかをゆるめ、鼻から深呼吸する / Relax face, jaw, belly and breathe deeply through nose"
+    ],
+    "cautions": [
+      "ひざや股関節に痛みがある場合は折りたたんだブランケットの上に座る / If you have knee or hip pain, sit on a folded blanket",
+      "無理に脚を組まない / Do not force the leg crossing"
+    ],
+    "chakra": "muladhara",
+    "imageFile": "pose_easy_pose.png"
+  },
+  {
+    "id": "downward_dog",
+    "nameJa": "下向き犬のポーズ",
+    "nameEn": "Downward Facing Dog",
+    "sanskrit": "Adho Mukha Svanasana",
+    "category": "standing",
+    "difficulty": 2,
+    "duration": "1-3分 / 1-3 minutes",
+    "benefits": [
+      "脳を鎮め、ストレスと軽い鬱を和らげる / Calms the brain and relieves stress and mild depression",
+      "体にエネルギーを与える / Energizes the body",
+      "肩・ハムストリング・ふくらはぎを伸ばす / Stretches the shoulders, hamstrings, calves",
+      "腕と脚を強化する / Strengthens the arms and legs",
+      "頭痛・不眠・腰痛・疲労を緩和する / Relieves headache, insomnia, back pain, and fatigue",
+      "消化を改善する / Improves digestion",
+      "骨粗しょう症の予防に役立つ / Helps prevent osteoporosis"
+    ],
+    "instructions": [
+      "四つん這いになる。ひざは腰の真下、手は肩より少し前に置く / Come onto hands and knees; knees below hips, hands slightly forward of shoulders",
+      "手のひらを広げ、つま先を曲げる / Spread palms and turn toes under",
+      "息を吐きながらひざを床から持ち上げる / Exhale and lift knees away from the floor",
+      "尾てい骨を伸ばし、坐骨を天井に向ける / Lengthen tailbone, press sitting bones toward ceiling",
+      "息を吐きながら太もも後ろを押し、かかとを床に向けて伸ばす / Push top thighs back and stretch heels toward floor",
+      "頭を上腕の間に保つ / Keep head between upper arms",
+      "1〜3分保持し、息を吐きながらひざを床に戻す / Hold 1-3 minutes, release with exhalation"
+    ],
+    "cautions": [
+      "手根管症候群・妊娠後期・高血圧の方は注意 / Use caution with carpal tunnel syndrome, late pregnancy, or high blood pressure"
+    ],
+    "chakra": "vishuddha",
+    "imageFile": "pose_downward_dog.png"
+  },
+  {
+    "id": "sun_salutation",
+    "nameJa": "太陽礼拝",
+    "nameEn": "Sun Salutation",
+    "sanskrit": "Surya Namaskar",
+    "category": "sequence",
+    "difficulty": 2,
+    "duration": "1ラウンド2-3分 / 2-3 min per round",
+    "benefits": [
+      "全身を目覚めさせる / Awakens the whole body",
+      "柔軟性と筋力を同時に高める / Builds flexibility and strength simultaneously",
+      "時間がない日の完全なヨガルーティン / Complete yoga routine for busy days",
+      "呼吸と動きの連携を深める / Deepens breath-movement connection",
+      "血流を促進し代謝を上げる / Improves circulation and metabolism"
+    ],
+    "instructions": [
+      "太陽の方向を向いて立つ。両足を合わせ、手を胸の前で合掌 / Stand facing the sun, feet together, hands in prayer at heart",
+      "息を吸いながら両腕を上げ、ゆっくり後ろに反る / Inhale, raise arms upward, slowly bend backward",
+      "息を吐きながら前屈し、手を足と同じ高さに / Exhale, bend forward until hands align with feet",
+      "息を吸いながら右脚を後ろに大きく引く / Inhale, step right leg back in wide backward step",
+      "息を吐きながら左脚も後ろへ。腕を伸ばし腰を上げて逆V字 / Exhale, bring left foot back, raise hips forming upward arch",
+      "息を吐きながら体を床に倒す / Exhale, lower body to floor",
+      "息を吸いながら頭を上げ、背中を反らせる / Inhale, raise head and arch spine",
+      "息を吐きながら再び逆V字に戻る / Exhale, return to upward arch",
+      "息を吸いながら右脚を前に戻す。さらに前屈へ / Inhale, step right leg forward, then return to forward fold",
+      "息を吸いながら両腕を上げ、合掌に戻る / Inhale, raise arms upward and return to prayer"
+    ],
+    "cautions": [
+      "腰や手首に問題がある場合はゆっくり行う / Move slowly if you have lower back or wrist issues",
+      "妊娠中は医師に相談 / Consult doctor during pregnancy"
+    ],
+    "chakra": "manipura",
+    "imageFile": "pose_sun_salutation.png"
+  },
+  {
+    "id": "tree_pose",
+    "nameJa": "木のポーズ",
+    "nameEn": "Tree Pose",
+    "sanskrit": "Vrikshasana",
+    "category": "standing",
+    "difficulty": 2,
+    "duration": "30秒〜1分（各脚）/ 30 sec to 1 min per side",
+    "benefits": [
+      "太もも・ふくらはぎ・足首・背骨を強化 / Strengthens thighs, calves, ankles, and spine",
+      "股関節・胸・肩を伸ばす / Stretches the groins, chest and shoulders",
+      "バランス感覚を向上させる / Improves sense of balance",
+      "坐骨神経痛を和らげ、偏平足を改善 / Relieves sciatica and reduces flat feet",
+      "集中力と精神的安定をもたらす / Cultivates concentration and mental stability"
+    ],
+    "instructions": [
+      "足を揃えて立ち、腕を体の横に置く / Stand with feet together, arms at sides",
+      "右ひざを曲げ、右足の裏を左太ももの内側にできるだけ高く当てる / Bend right knee, bring sole of right foot high on inner left thigh",
+      "左足でバランスを保ちながら両腕を頭上に上げ、合掌 / Balancing on left foot, raise both arms overhead with palms together",
+      "鼻から静かに呼吸しながら約10呼吸保持 / Breathe gently through nostrils for about 10 breaths",
+      "腕と右脚を下ろし、反対側で繰り返す / Lower arms and right leg, repeat on opposite side",
+      "各脚2〜3回行う / Repeat 2-3 times per leg"
+    ],
+    "cautions": [
+      "不眠・低血圧の方は注意 / Use caution with insomnia or low blood pressure",
+      "高血圧の方は腕を頭上に上げない / If you have high blood pressure, do not raise arms above head"
+    ],
+    "chakra": "muladhara",
+    "imageFile": "pose_tree_pose.png"
+  },
+  {
+    "id": "triangle",
+    "nameJa": "三角のポーズ",
+    "nameEn": "Extended Triangle Pose",
+    "sanskrit": "Trikonasana",
+    "category": "standing",
+    "difficulty": 2,
+    "duration": "30秒〜1分（各側）/ 30 sec to 1 min per side",
+    "benefits": [
+      "太もも・ひざ・足首を伸ばし強化 / Stretches and strengthens thighs, knees, ankles",
+      "股関節・ハムストリング・肩・胸・背骨を伸ばす / Stretches hips, hamstrings, shoulders, chest, spine",
+      "腹部臓器を刺激する / Stimulates the abdominal organs",
+      "ストレス解消、消化改善 / Helps relieve stress and improves digestion",
+      "背中痛（特に妊娠中期）を和らげる / Relieves backache, especially in second trimester"
+    ],
+    "instructions": [
+      "足を揃えて立ち、肩幅より広めに足を開く / Stand with feet together, then separate feet wider than shoulder width",
+      "息を吸いながら両腕を肩から横に伸ばす（手のひら下向き） / Inhale, raise both arms parallel to floor, palms down",
+      "息を吐きながら左に向きを変え、腰から曲がって右手を左足首に / Exhale, turn torso left, bend at waist, bring right hand to left ankle",
+      "左腕は真上に伸ばす。両脚・両腕はまっすぐに / Extend left arm upward; keep both legs and arms straight",
+      "頭を上に向け、左手の指先を見る / Turn head upward, gaze up at fingertips of left hand",
+      "息を吸いながら立ち上がり、逆側で繰り返す / Inhale to standing, repeat on opposite side"
+    ],
+    "cautions": [
+      "低血圧・心臓疾患・首の問題がある方は注意 / Caution with low blood pressure, heart conditions, or neck problems"
+    ],
+    "chakra": "manipura",
+    "imageFile": "pose_triangle.png"
+  },
+  {
+    "id": "seated_forward_bend",
+    "nameJa": "座位前屈",
+    "nameEn": "Seated Forward Bend",
+    "sanskrit": "Paschimottanasana",
+    "category": "seated",
+    "difficulty": 2,
+    "duration": "1-3分 / 1-3 minutes",
+    "benefits": [
+      "脳を鎮め、ストレスと軽い鬱を和らげる / Calms the brain, relieves stress and mild depression",
+      "背骨・肩・ハムストリングを伸ばす / Stretches the spine, shoulders, hamstrings",
+      "肝臓・腎臓・卵巣・子宮を刺激 / Stimulates liver, kidneys, ovaries, and uterus",
+      "消化を改善する / Improves digestion",
+      "頭痛・不安・疲労を和らげる / Soothes headache, anxiety, and reduces fatigue",
+      "高血圧・不妊・不眠に有効 / Therapeutic for high blood pressure, infertility, insomnia"
+    ],
+    "instructions": [
+      "床に座り、両脚をまっすぐ前に伸ばす / Sit on floor with legs straight in front",
+      "かかとを通じて積極的に押し出す / Press actively through your heels",
+      "太ももを軽く内側に回し、床に押し付ける / Turn top thighs slightly inward and press down",
+      "息を吸いながら、前体を長く保ちながら股関節から前傾 / Inhale, keeping front torso long, lean forward from hip joints",
+      "可能なら足の裏をつかむ。無理なら足周りにストラップを使う / Take sides of feet with hands; if not possible, loop a strap around soles",
+      "各吸気で少し持ち上げ、各呼気でさらに前傾 / On each inhalation lift slightly; on each exhalation release further",
+      "1〜3分保持 / Hold 1-3 minutes"
+    ],
+    "cautions": [
+      "喘息・背中のケガがある場合は注意 / Caution with asthma or back injury"
+    ],
+    "chakra": "svadhisthana",
+    "imageFile": "pose_seated_forward_bend.png"
+  },
+  {
+    "id": "bound_angle",
+    "nameJa": "合蹠のポーズ",
+    "nameEn": "Bound Angle Pose",
+    "sanskrit": "Baddha Konasana",
+    "category": "seated",
+    "difficulty": 1,
+    "duration": "1-5分 / 1-5 minutes",
+    "benefits": [
+      "腹部臓器・卵巣・膀胱・腎臓を刺激 / Stimulates abdominal organs, ovaries, bladder, kidneys",
+      "心臓を刺激し全身の循環を改善 / Stimulates heart and improves general circulation",
+      "内もも・鼠径部・ひざを伸ばす / Stretches inner thighs, groins, and knees",
+      "軽い鬱・不安・疲労を和らげる / Helps relieve mild depression, anxiety, and fatigue",
+      "生理不快感と坐骨神経痛を和らげる / Soothes menstrual discomfort and sciatica",
+      "出産を楽にするといわれる / Said to help ease childbirth"
+    ],
+    "instructions": [
+      "両脚を前に伸ばして座る / Sit with legs straight in front",
+      "息を吐き、ひざを曲げてかかとを骨盤に引き寄せる / Exhale, bend knees, pull heels toward pelvis",
+      "足の裏を合わせて両ひざを外側に落とす / Drop knees out to sides and press soles of feet together",
+      "足の親指をつかむか、足首・すねを持つ / Grasp big toes with fingers, or hold ankles/shins",
+      "胸骨の先端に向けて前体を長く保つ / Lengthen front torso through top of sternum",
+      "ひざを無理に下げない。太ももの付け根を床に向ける / Never force knees down; release heads of thigh bones toward floor",
+      "1〜5分保持 / Hold 1-5 minutes"
+    ],
+    "cautions": [
+      "鼠径部や膝のケガがある場合は折りたたんだブランケットの上に座る / Sit on folded blanket if groin or knee injury"
+    ],
+    "chakra": "svadhisthana",
+    "imageFile": "pose_bound_angle.png"
+  },
+  {
+    "id": "wide_angle_forward_bend",
+    "nameJa": "ワイドアングル前屈",
+    "nameEn": "Wide-Angle Seated Forward Bend",
+    "sanskrit": "Upavistha Konasana",
+    "category": "seated",
+    "difficulty": 2,
+    "duration": "1-3分 / 1-3 minutes",
+    "benefits": [
+      "脚の内側と後ろを伸ばす / Stretches insides and backs of legs",
+      "腹部臓器を刺激する / Stimulates the abdominal organs",
+      "背骨を強化する / Strengthens the spine",
+      "脳を鎮める / Calms the brain",
+      "鼠径部を解放する / Releases the groins"
+    ],
+    "instructions": [
+      "両脚を前に伸ばして座り、上体を少し後ろに傾ける / Sit with legs extended, lean torso back slightly on hands",
+      "両脚を約90度に開く / Lift and open legs to about 90 degrees",
+      "手で床を押してさらに10〜20度開く / Press hands against floor and widen legs another 10-20 degrees",
+      "太ももを外回りにして、ひざを真上に向ける / Rotate thighs outward so knee caps point straight up",
+      "かかとを押し出し、足の裏を広げる / Reach out through heels and stretch soles",
+      "股関節から前傾し、両腕を脚の間で前へ伸ばす / Walk hands forward between legs, moving from hip joints",
+      "1分以上保持 / Hold 1 minute or longer"
+    ],
+    "cautions": [
+      "腰のケガがある場合は注意 / Caution with lower back injury"
+    ],
+    "chakra": "svadhisthana",
+    "imageFile": "pose_wide_angle_forward_bend.png"
+  },
+  {
+    "id": "boat_pose",
+    "nameJa": "舟のポーズ",
+    "nameEn": "Full Boat Pose",
+    "sanskrit": "Navasana",
+    "category": "seated",
+    "difficulty": 3,
+    "duration": "10-60秒 / 10-60 seconds",
+    "benefits": [
+      "腹部・股関節屈筋・背骨を強化 / Strengthens abdomen, hip flexors, and spine",
+      "腎臓・甲状腺・腸を刺激 / Stimulates kidneys, thyroid, and intestines",
+      "ストレスを和らげる / Helps relieve stress",
+      "消化を改善する / Improves digestion"
+    ],
+    "instructions": [
+      "両脚を前に伸ばして床に座る / Sit on floor with legs straight in front",
+      "手を腰の少し後ろに置き、腕を強化する / Press hands on floor behind hips, strengthen arms",
+      "胸骨の先端を持ち上げ、軽く後ろに傾く / Lift through top of sternum and lean back slightly",
+      "息を吐き、ひざを曲げ足を床から持ち上げる（太もも45〜50度） / Exhale, bend knees and lift feet off floor",
+      "可能なら、ひざをゆっくり伸ばしつま先を目の高さより少し上へ / Slowly straighten knees, raising toes slightly above eye level",
+      "腕を脚の横に平行に伸ばす / Stretch arms alongside legs, parallel to floor",
+      "最初は10〜20秒から始め、徐々に1分に延ばす / Start with 10-20 sec, gradually increase to 1 minute"
+    ],
+    "cautions": [
+      "低血圧・不眠・首の問題・妊娠・生理中は注意 / Caution with low blood pressure, insomnia, neck problems, pregnancy, or menstruation"
+    ],
+    "chakra": "manipura",
+    "imageFile": "pose_boat_pose.png"
+  },
+  {
+    "id": "bridge_pose",
+    "nameJa": "橋のポーズ",
+    "nameEn": "Bridge Pose",
+    "sanskrit": "Setu Bandhasana",
+    "category": "supine",
+    "difficulty": 2,
+    "duration": "30秒〜1分 / 30 seconds to 1 minute",
+    "benefits": [
+      "胸・首・背骨を伸ばす / Stretches the chest, neck, and spine",
+      "脳を鎮め、ストレスと軽い鬱を和らげる / Calms the brain, alleviates stress and mild depression",
+      "腹部臓器・肺・甲状腺を刺激 / Stimulates abdominal organs, lungs, thyroid",
+      "疲れた脚を回復させる / Rejuvenates tired legs",
+      "不安・疲労・腰痛・頭痛・不眠を軽減 / Reduces anxiety, fatigue, backache, headache, insomnia",
+      "喘息・高血圧・骨粗しょう症・副鼻腔炎に有効 / Therapeutic for asthma, high blood pressure, osteoporosis, sinusitis"
+    ],
+    "instructions": [
+      "床に仰向けに寝る。ひざを曲げ、足を坐骨のできるだけ近くに置く / Lie supine, bend knees, set feet on floor close to sitting bones",
+      "息を吐き、内側の足と腕を床に押し付けて尾てい骨を上げる / Exhale, press inner feet and arms into floor, lift tailbone",
+      "臀部を締め（硬くしすぎない）床から持ち上げる / Firm buttocks and lift off floor",
+      "太ももと足を平行に保つ / Keep thighs and inner feet parallel",
+      "手を骨盤の下で組み、腕を伸ばして肩の上に乗る / Clasp hands below pelvis, extend arms to stay on tops of shoulders",
+      "太ももが床と平行になるまで持ち上げる / Lift buttocks until thighs are parallel to floor",
+      "30秒〜1分保持。息を吐きながらゆっくり背骨を床に下ろす / Hold 30 sec to 1 min; release slowly rolling spine down"
+    ],
+    "cautions": [
+      "首のケガがある場合は注意 / Caution with neck injury"
+    ],
+    "chakra": "anahata",
+    "imageFile": "pose_bridge_pose.png"
+  },
+  {
+    "id": "legs_up_wall",
+    "nameJa": "壁に脚を上げるポーズ",
+    "nameEn": "Legs Up the Wall",
+    "sanskrit": "Viparita Karani",
+    "category": "restorative",
+    "difficulty": 1,
+    "duration": "5-15分 / 5-15 minutes",
+    "benefits": [
+      "疲れた脚・足のつりを和らげる / Relieves tired or cramped legs and feet",
+      "背脚・前体・首の後ろを優しく伸ばす / Gently stretches back legs, front torso, and back of neck",
+      "軽い腰痛を和らげる / Relieves mild backache",
+      "心を鎮める / Calms the mind",
+      "活力と若さを回復すると伝統的に言われる / Traditionally said to reverse aging and restore vitality"
+    ],
+    "instructions": [
+      "支持物（折りたたんだブランケットやボルスター）を壁から5〜6インチの距離に置く / Place support 5-6 inches from wall",
+      "支持物の右端に横向きに座る（右側が壁の方向） / Sit sideways on right end of support, right side toward wall",
+      "息を吐きながら脚を壁に上げ、肩と頭を床に軽く下ろす / Exhale, swing legs up the wall, lower shoulders and head to floor",
+      "腰が支持物の上にくるよう調整する / Adjust so sitting bones drip into space between support and wall",
+      "肩甲骨を背骨から広げ、腕を横に伸ばす（手のひら上向き） / Open shoulder blades away from spine, release arms out to sides, palms up",
+      "目を柔らかくして5〜15分保持 / Soften eyes and stay 5-15 minutes",
+      "出る際は支持物から床にスライドし、横向きになってから起き上がる / Slide off support onto floor, turn to side before sitting up"
+    ],
+    "cautions": [
+      "重度の首・背中の問題がある場合は医師に相談 / Consult doctor with serious neck or back problems",
+      "生理中は行わないことを推奨する流派もある / Some traditions advise against during menstruation"
+    ],
+    "chakra": "sahasrara",
+    "imageFile": "pose_legs_up_wall.png"
+  },
+  {
+    "id": "corpse_pose",
+    "nameJa": "屍のポーズ",
+    "nameEn": "Corpse Pose",
+    "sanskrit": "Savasana",
+    "category": "restorative",
+    "difficulty": 1,
+    "duration": "5-20分 / 5-20 minutes",
+    "benefits": [
+      "脳を鎮め、ストレスと軽い鬱を和らげる / Calms the brain, relieves stress and mild depression",
+      "体を完全にリラックスさせる / Completely relaxes the body",
+      "頭痛・疲労・不眠を軽減する / Reduces headache, fatigue, and insomnia",
+      "血圧を下げる / Helps lower blood pressure",
+      "消耗したエネルギーを回復させる / Restores depleted energy"
+    ],
+    "instructions": [
+      "床に仰向けに寝る（枕なし） / Lie on back on the floor without pillow",
+      "骨盤を軽く持ち上げ、尾てい骨を引き伸ばして戻す / Lift pelvis slightly, push back of pelvis toward tailbone, return",
+      "両脚をゆっくり伸ばし、かかとを押し出す / Slowly extend both legs, pushing through heels",
+      "脚が体の中心線から均等に広がるようにする / Release both legs so they fall evenly out from midline",
+      "頭の付け根を首から離し、首の後ろを床に向けて伸ばす / Lift base of skull from back of neck, release back of neck downward",
+      "腕を床に下ろし、手のひらを上に向ける / Release arms to floor, palms facing up",
+      "目を柔らかくし、内側を見るように向ける。完全に力を抜く / Soften eyes, turn them down to gaze at heart. Completely let go",
+      "30分の練習につき5分の割合で保持 / Stay for 5 min per 30 min of practice"
+    ],
+    "cautions": [
+      "妊娠後期は頭と胸を支持物で支える / In late pregnancy, support head and chest on bolster",
+      "腰痛がある場合はひざを曲げて足を床につける / With back pain, bend knees with feet on floor"
+    ],
+    "chakra": "sahasrara",
+    "imageFile": "pose_corpse_pose.png"
+  },
+  {
+    "id": "childs_pose",
+    "nameJa": "子供のポーズ",
+    "nameEn": "Child's Pose",
+    "sanskrit": "Balasana",
+    "category": "restorative",
+    "difficulty": 1,
+    "duration": "1-5分 / 1-5 minutes",
+    "benefits": [
+      "頭痛を素早く和らげる / Quickly alleviates headache",
+      "ストレスと疲労を解消する / Relieves stress and fatigue",
+      "腰・太もも・足首を優しく伸ばす / Gently stretches the hips, thighs, and ankles",
+      "心と体を鎮める / Calms the mind and body",
+      "休憩が必要なときにいつでも戻れる安全地帯 / A safe haven to return to whenever rest is needed"
+    ],
+    "instructions": [
+      "床にひざまずき、親指を合わせ、かかとの上に座る / Kneel on floor, touch big toes together, sit on heels",
+      "ひざを腰の幅程度に広げる / Separate knees about as wide as your hips",
+      "息を吐きながら上体を太ももの間に前傾させる / Exhale, lay torso down between thighs",
+      "腕を前に伸ばすか、体の横に沿わせる / Stretch arms forward or alongside body",
+      "額を床につける / Rest forehead on floor",
+      "完全に力を抜き、自然に呼吸する / Completely release and breathe naturally"
+    ],
+    "cautions": [
+      "妊娠中・膝のケガがある場合は注意 / Caution during pregnancy or with knee injury",
+      "膝が痛む場合はひざの間に折りたたんだブランケットを挟む / Place folded blanket between thighs and calves if knees hurt"
+    ],
+    "chakra": "ajna",
+    "imageFile": "pose_childs_pose.png"
+  },
+  {
+    "id": "standing_forward_bend",
+    "nameJa": "立位前屈",
+    "nameEn": "Standing Forward Bend",
+    "sanskrit": "Uttanasana",
+    "category": "standing",
+    "difficulty": 2,
+    "duration": "30秒〜1分 / 30 seconds to 1 minute",
+    "benefits": [
+      "軽い鬱を和らげ、脳を鎮める / Calms the brain and relieves mild depression",
+      "ストレスを解消する / Relieves stress",
+      "ハムストリング・ふくらはぎを伸ばす / Stretches hamstrings and calves",
+      "頭痛・不眠を和らげる / Relieves headache and insomnia",
+      "消化を改善する / Improves digestion"
+    ],
+    "instructions": [
+      "山のポーズで立ち、手を腰に当てる / Stand in mountain pose, hands on hips",
+      "息を吐き、股関節から（腰からではなく）前傾する / Exhale, bend forward from hip joints, not the waist",
+      "前体を伸ばしながら下降する / As you descend, draw front torso out of groins",
+      "手を足と同じ高さに置くか、すねや足首をつかむ / Place hands next to feet, or grasp shins or ankles",
+      "ひざを若干曲げてもよい。前体を長く保つ / Knees may be slightly bent; keep front torso long",
+      "30秒〜1分保持。息を吸いながらゆっくり立ち上がる / Hold 30 sec to 1 min, inhale to rise slowly"
+    ],
+    "cautions": [
+      "腰椎ヘルニアがある場合は深く前傾しない / Do not bend deeply with lumbar disc herniation",
+      "血圧が高い場合は徐々に起き上がる / Rise gradually if you have high blood pressure"
+    ],
+    "chakra": "ajna",
+    "imageFile": "pose_standing_forward_bend.png"
+  },
+  {
+    "id": "reclining_bound_angle",
+    "nameJa": "仰向け合蹠のポーズ",
+    "nameEn": "Reclining Bound Angle Pose",
+    "sanskrit": "Supta Baddha Konasana",
+    "category": "restorative",
+    "difficulty": 1,
+    "duration": "5-10分 / 5-10 minutes",
+    "benefits": [
+      "生理痛を和らげる / Relieves menstrual cramps",
+      "鼠径部と股関節を開く / Opens the groins and hips",
+      "不安・疲労・頭痛・生理不快感を和らげる / Relieves anxiety, fatigue, headache, menstrual discomfort",
+      "高血圧・不眠・副鼻腔炎に有効 / Therapeutic for high blood pressure, insomnia, sinusitis",
+      "深いリラクゼーションをもたらす / Provides deep relaxation"
+    ],
+    "instructions": [
+      "仰向けに寝る / Lie on your back",
+      "ひざを曲げ、足の裏を合わせる / Bend knees and press soles of feet together",
+      "両ひざを外側に広げる（蝶の羽のように） / Let both knees fall open to the sides like butterfly wings",
+      "腰の下にブランケットを置いてもよい / A blanket under the lower back is optional",
+      "腕を体の横に伸ばし、手のひらを上に向ける / Extend arms to sides, palms up",
+      "完全に力を抜き、5〜10分保持 / Completely release and hold 5-10 minutes"
+    ],
+    "cautions": [
+      "股関節・鼠径部のケガがある場合は太ももの下にブランケットを置く / Place blankets under thighs if hip or groin injury"
+    ],
+    "chakra": "svadhisthana",
+    "imageFile": "pose_reclining_bound_angle.png"
+  },
+  {
+    "id": "upward_bow",
+    "nameJa": "上向き弓のポーズ",
+    "nameEn": "Upward Bow / Wheel Pose",
+    "sanskrit": "Urdhva Dhanurasana",
+    "category": "backbend",
+    "difficulty": 4,
+    "duration": "15-30秒 / 15-30 seconds",
+    "benefits": [
+      "軽い鬱を和らげ、エネルギーを高める / Relieves mild depression and increases energy",
+      "脊柱・股関節屈筋・腹部を伸ばす / Stretches the spine, hip flexors, and abdomen",
+      "胸と肺を開く / Opens the chest and lungs",
+      "甲状腺と下垂体を刺激する / Stimulates the thyroid and pituitary glands",
+      "腕・手首・脚・臀部・腹部を強化 / Strengthens the arms, wrists, legs, buttocks, abdomen"
+    ],
+    "instructions": [
+      "仰向けに寝る / Lie on your back",
+      "ひざを曲げ、足を坐骨の近くに置く / Bend knees, set feet close to sitting bones",
+      "手のひらを床につける（指が肩の方向） / Place palms on floor with fingers pointing toward shoulders",
+      "息を吐き、手と足で押して腰とお腹を持ち上げる / Exhale, press hands and feet to lift hips and belly",
+      "腕をしっかり伸ばし、さらに上へ持ち上げる / Straighten arms fully and lift higher",
+      "15〜30秒保持。息を吐きながらゆっくり下ろす / Hold 15-30 sec, slowly lower on exhalation"
+    ],
+    "cautions": [
+      "背中・手首・肩のケガがある場合は行わない / Avoid with back, wrist, or shoulder injury",
+      "初心者は壁を使って練習する / Beginners practice against wall",
+      "高血圧・心臓疾患の方は医師に相談 / Consult doctor with high blood pressure or heart conditions"
+    ],
+    "chakra": "anahata",
+    "imageFile": "pose_upward_bow.png"
+  },
+  {
+    "id": "seated_twist",
+    "nameJa": "座位ねじりのポーズ",
+    "nameEn": "Seated Spinal Twist",
+    "sanskrit": "Ardha Matsyendrasana",
+    "category": "seated",
+    "difficulty": 2,
+    "duration": "30秒〜1分（各側）/ 30 sec to 1 min per side",
+    "benefits": [
+      "生理不快感を和らげる / Soothes menstrual discomfort",
+      "背骨・肩・股関節を伸ばす / Stretches the spine, shoulders, and hips",
+      "消化器官を刺激する / Stimulates digestive organs",
+      "ストレスを和らげる / Relieves stress",
+      "背中の疲れを解消する / Relieves back fatigue"
+    ],
+    "instructions": [
+      "両脚を前に伸ばして座る / Sit with legs extended in front",
+      "右ひざを曲げ、右足を左太ももの外側に置く / Bend right knee, place right foot outside left thigh",
+      "左腕を右ひざの外側に回し、右ひざをつかむ / Bring left arm to outside of right knee",
+      "息を吸いながら背骨を伸ばし、息を吐きながら右に回す / Inhale to lengthen spine, exhale to twist right",
+      "右手を体の後ろの床につく / Place right hand on floor behind you",
+      "30秒〜1分保持。反対側で繰り返す / Hold 30 sec to 1 min, repeat other side"
+    ],
+    "cautions": [
+      "背中・脊柱のケガがある場合は注意 / Caution with back or spinal injury"
+    ],
+    "chakra": "manipura",
+    "imageFile": "pose_seated_twist.png"
+  },
+  {
+    "id": "headstand",
+    "nameJa": "頭立ちのポーズ",
+    "nameEn": "Headstand",
+    "sanskrit": "Sirsasana",
+    "category": "inversion",
+    "difficulty": 5,
+    "duration": "1-5分 / 1-5 minutes",
+    "benefits": [
+      "血流と脳への循環を改善する / Improves circulation to brain",
+      "不眠・緊張・神経過敏・不安を和らげる / Relieves insomnia, tension, nervousness, and anxiety",
+      "鬱・疲労不足のエネルギーを改善 / Improves depression and lack of energy",
+      "下垂体・松果体・甲状腺・副甲状腺に作用 / Affects pituitary, pineal, thyroid, and parathyroid glands",
+      "「アーサナの王様」と呼ばれる / Called 'The King of Asanas'"
+    ],
+    "instructions": [
+      "毛布を折りたたんで頭と前腕の支えを作る / Set up folded blanket as padding for head and forearms",
+      "ひざまずき、前腕を肩幅に床に置く。指を組む / Kneel and set forearms shoulder-width on floor, interlace fingers",
+      "頭頂部を床に置き、後頭部を手に当てる / Place crown on floor, cup back of head with hands",
+      "つま先を立てて腰を持ち上げる / Tuck toes and lift hips",
+      "ゆっくり脚を持ち上げ、垂直になるまで伸ばす / Slowly lift legs up until vertical",
+      "前腕で押し上げ、体重を頭にかけすぎない / Press forearms down; avoid putting too much weight on head",
+      "1〜5分保持。息を吐きながらゆっくり下ろす / Hold 1-5 min; lower slowly on exhalation"
+    ],
+    "cautions": [
+      "高血圧・動悸・慢性的な頸部・背部の問題がある方は行わない / Avoid with high blood pressure, palpitations, chronic neck or back problems",
+      "初心者は壁の近くで行うか、先生の指導の下で / Beginners practice near wall or under teacher supervision",
+      "生理中は行わない / Avoid during menstruation"
+    ],
+    "chakra": "sahasrara",
+    "imageFile": "pose_headstand.png"
+  },
+  {
+    "id": "mountain_pose",
+    "nameJa": "山のポーズ",
+    "nameEn": "Mountain Pose",
+    "sanskrit": "Tadasana",
+    "category": "standing",
+    "difficulty": 1,
+    "duration": "30秒〜2分 / 30 sec to 2 minutes",
+    "benefits": [
+      "姿勢を改善する / Improves posture",
+      "太もも・ひざ・足首を強化する / Strengthens thighs, knees, ankles",
+      "足の土踏まずを強化する / Firms the arches of the feet",
+      "腹部と臀部を引き締める / Firms abdomen and buttocks",
+      "すべての立位ポーズの基礎 / Foundation for all standing poses"
+    ],
+    "instructions": [
+      "足を揃えて立ち、つま先を真っ直ぐ前に向ける / Stand with feet together, toes pointing straight forward",
+      "足全体で均等に体重を支える / Distribute weight evenly across entire foot",
+      "太ももの筋肉を持ち上げ、ひざを軽く引き上げる / Lift thigh muscles and slightly lift kneecaps",
+      "骨盤を中立の位置に保ち、尾てい骨を下に向ける / Maintain neutral pelvis, lengthen tailbone downward",
+      "胸を広げ、肩甲骨を背中に引き、肩を下げる / Broaden chest, draw shoulder blades back, drop shoulders",
+      "頭頂部を天井に向けて伸ばす / Lengthen through crown of head toward ceiling"
+    ],
+    "cautions": [
+      "頭痛・不眠の場合は長時間行わない / Avoid prolonged practice with headache or insomnia"
+    ],
+    "chakra": "muladhara",
+    "imageFile": "pose_mountain_pose.png"
+  },
+  {
+    "id": "cobra_pose",
+    "nameJa": "コブラのポーズ",
+    "nameEn": "Cobra Pose",
+    "sanskrit": "Bhujangasana",
+    "category": "prone",
+    "difficulty": 2,
+    "duration": "15-30秒 / 15-30 seconds",
+    "benefits": [
+      "背骨を強化する / Strengthens the spine",
+      "胸・肺・肩・腹部を伸ばす / Stretches chest, lungs, shoulders, and abdomen",
+      "疲労とストレスを和らげる / Soothes fatigue and stress",
+      "坐骨神経痛を和らげる / Helpful for sciatica",
+      "腎臓を刺激する / Stimulates the kidneys"
+    ],
+    "instructions": [
+      "床にうつ伏せになる / Lie on your belly on the floor",
+      "手のひらを床につけ、肘が体の横（肩の真下より少し後ろ）に来るよう配置 / Place palms on floor, elbows alongside body slightly behind shoulders",
+      "つま先を伸ばし、足のすべてを床に押しつける / Stretch toes back, press all ten toes into floor",
+      "息を吸いながら腕で押し、胸を床から持ち上げる / Inhale, press hands to lift chest off floor",
+      "腕を伸ばしすぎず、肘に軽い曲がりを保つ / Keep slight bend in elbows; do not fully lock",
+      "肩甲骨を広げ、肩を耳から離す / Broaden shoulder blades, drop shoulders away from ears",
+      "15〜30秒保持。息を吐きながら下ろす / Hold 15-30 sec; lower on exhalation"
+    ],
+    "cautions": [
+      "背中のケガ・手根管症候群・妊娠中は避ける / Avoid with back injury, carpal tunnel syndrome, or during pregnancy"
+    ],
+    "chakra": "manipura",
+    "imageFile": "pose_cobra_pose.png"
+  },
+  {
+    "id": "cat_cow",
+    "nameJa": "キャット・カウ",
+    "nameEn": "Cat-Cow Pose",
+    "sanskrit": "Marjaryasana-Bitilasana",
+    "category": "kneeling",
+    "difficulty": 1,
+    "duration": "1-3分 / 1-3 minutes",
+    "benefits": [
+      "背骨の柔軟性を高める / Increases spinal flexibility",
+      "背中と首のこりをほぐす / Relieves back and neck stiffness",
+      "腹部臓器をマッサージする / Massages abdominal organs",
+      "呼吸と動きの連携を整える / Coordinates breath and movement",
+      "デスクワーク後の疲れに最適 / Ideal for relieving desk work fatigue"
+    ],
+    "instructions": [
+      "四つん這いになる（ひざは腰の下、手は肩の下） / Come to hands and knees (knees below hips, wrists below shoulders)",
+      "【カウ】息を吸いながら腰を落とし、頭を上げ、背骨を下に向けて反らせる / CAT: Exhale, round spine toward ceiling, drop head",
+      "【キャット】息を吐きながら背骨を上に向けて丸め、頭を下げる / COW: Inhale, drop belly toward floor, lift head and tailbone",
+      "呼吸に合わせて5〜10回繰り返す / Repeat 5-10 times with breath"
+    ],
+    "cautions": [
+      "首のケガがある場合は首を中立に保つ / Keep neck neutral with neck injury"
+    ],
+    "chakra": "anahata",
+    "imageFile": "pose_cat_cow.png"
+  }
+]

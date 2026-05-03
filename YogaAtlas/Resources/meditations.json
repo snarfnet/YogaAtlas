@@ -1,0 +1,298 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-04-16",
+  "meditations": [
+    {
+      "id": "universal_mantra",
+      "nameJa": "宇宙マントラ瞑想",
+      "nameEn": "Universal Mantra Meditation",
+      "icon": "🕉",
+      "durationOptions": [5, 10, 15, 20],
+      "defaultDuration": 10,
+      "description": "OM（オーム）を声に出すまたは心の中で唱えながら宇宙意識と繋がる瞑想。振動が全身の細胞に共鳴します。",
+      "descriptionEn": "Connect with universal consciousness by chanting or internally resonating with OM. The vibration harmonizes every cell of the body.",
+      "mantra": "OM",
+      "mantraPhonetic": "オーム",
+      "benefits": [
+        "精神の集中力向上",
+        "ストレスホルモン（コルチゾール）の低下",
+        "迷走神経刺激による深いリラクゼーション",
+        "意識の拡張・超越体験"
+      ],
+      "benefitsEn": [
+        "Improved mental focus",
+        "Reduced stress hormones (cortisol)",
+        "Deep relaxation via vagus nerve stimulation",
+        "Expanded and transcendent awareness"
+      ],
+      "instructions": [
+        "楽な座位（安楽座または椅子）で背筋を立てます。",
+        "目を閉じ、3回深呼吸して心を落ち着けます。",
+        "息を吸い込み、吐く息に合わせて「オーーーーム」と声に出します（または心の中で唱えます）。",
+        "「O」の音が腹部・胸部に響き、「M」が頭蓋骨に振動するのを感じます。",
+        "次の吸気まで静寂の中にとどまり、残響を感じます。",
+        "これをタイマーが鳴るまで繰り返します。"
+      ],
+      "instructionsEn": [
+        "Sit comfortably (Easy Pose or chair) with spine upright.",
+        "Close eyes and take 3 deep breaths to settle the mind.",
+        "Inhale, then on the exhale chant 'OHHHHM' aloud or silently.",
+        "Feel 'O' resonate in belly and chest; feel 'M' vibrate in the skull.",
+        "Rest in the silence after each chant, sensing the resonance.",
+        "Continue until the timer sounds."
+      ],
+      "chakra": "sahasrara",
+      "backgroundMusic": "tibetan_bowls",
+      "difficulty": 1,
+      "tags": ["beginner", "mantra", "spiritual", "stress-relief"]
+    },
+    {
+      "id": "relaxation",
+      "nameJa": "完全弛緩瞑想",
+      "nameEn": "Total Relaxation Meditation",
+      "icon": "🌊",
+      "durationOptions": [10, 15, 20, 30],
+      "defaultDuration": 15,
+      "description": "ヨガニドラ（ヨガの眠り）をベースにした体系的弛緩法。部位ごとに意識を向けながら全身を解放します。",
+      "descriptionEn": "Systematic relaxation based on Yoga Nidra (yogic sleep). Release the entire body by bringing awareness to each part sequentially.",
+      "benefits": [
+        "深い肉体的・精神的疲労の回復",
+        "睡眠の質向上",
+        "慢性疼痛の軽減",
+        "30分の効果が2時間の睡眠に相当するとされる"
+      ],
+      "benefitsEn": [
+        "Recovery from deep physical and mental fatigue",
+        "Improved sleep quality",
+        "Reduced chronic pain",
+        "Said to be equivalent to 2 hours of sleep per 30-min session"
+      ],
+      "instructions": [
+        "屍のポーズ（シャバーサナ）で横になります。毛布やアイピローを使っても構いません。",
+        "目を閉じ、全身の力を抜きます。",
+        "「私は今完全にリラックスしています」と心の中で3回繰り返します（サンカルパ）。",
+        "右手の親指→人差し指→中指→薬指→小指→手のひら→手の甲→前腕…と右半身から順に各部位に意識を向けます。",
+        "次に左半身、体の背面、顔、頭部へと移ります。",
+        "全身を感じたら、意識を呼吸に戻し、静かにとどまります。",
+        "音に気づいたら「音が聞こえている」と観察し、判断せず手放します。"
+      ],
+      "instructionsEn": [
+        "Lie in Corpse Pose. Blanket and eye pillow optional.",
+        "Close eyes and let the whole body go.",
+        "Silently repeat 'I am completely relaxed' 3 times (Sankalpa).",
+        "Move awareness through the body part by part: right thumb → index → middle… right half → left half → back → face → head.",
+        "Return awareness to breath after completing the body scan.",
+        "If sounds arise, observe 'hearing is happening' and release without judgment."
+      ],
+      "chakra": "anahata",
+      "backgroundMusic": "nature_sounds",
+      "difficulty": 1,
+      "tags": ["beginner", "yoga-nidra", "sleep", "fatigue", "healing"]
+    },
+    {
+      "id": "energy_healing",
+      "nameJa": "エネルギー癒し瞑想",
+      "nameEn": "Prana Energy Healing Meditation",
+      "icon": "✨",
+      "durationOptions": [10, 15, 20],
+      "defaultDuration": 15,
+      "description": "プラーナ（生命エネルギー）を呼吸で体内に取り込み、患部や疲れた部位へと意識的に送り届ける瞑想。",
+      "descriptionEn": "Draw Prana (life energy) in with the breath and consciously direct it to areas of discomfort or depletion.",
+      "benefits": [
+        "エネルギー回復・活力向上",
+        "免疫系の活性化",
+        "自己治癒力の促進",
+        "感情的なブロックの解放"
+      ],
+      "benefitsEn": [
+        "Energy restoration and vitality",
+        "Immune system activation",
+        "Enhanced self-healing capacity",
+        "Release of emotional blockages"
+      ],
+      "instructions": [
+        "楽な座位または仰向けになります。",
+        "両手を膝の上か腹部に置きます。",
+        "鼻から4カウント吸いながら「宇宙のエネルギーが全身に満ちていく」と視覚化します。",
+        "吸気の頂点で2カウント止め、エネルギーが最も必要な部位（痛み、疲れ、病気の場所）に集中します。",
+        "口または鼻から6カウント吐きながら、その部位の緊張・痛み・疲れが光となって体外に溶けていくのを見ます。",
+        "8〜10サイクル繰り返した後、全身にエネルギーが満ちているのを感じます。",
+        "両手を合わせて額に当て、感謝の意図で締めくくります。"
+      ],
+      "instructionsEn": [
+        "Sit comfortably or lie down.",
+        "Rest hands on knees or abdomen.",
+        "Inhale for 4 counts, visualizing universal energy filling your entire body.",
+        "Hold for 2 counts, directing energy to the area needing most healing.",
+        "Exhale for 6 counts, seeing tension, pain, and fatigue dissolve as light leaving the body.",
+        "Repeat 8–10 cycles, then sense your whole body filled with energy.",
+        "Press palms together to forehead and close with an intention of gratitude."
+      ],
+      "chakra": "manipura",
+      "backgroundMusic": "crystal_bowls",
+      "difficulty": 2,
+      "tags": ["intermediate", "prana", "healing", "visualization", "energy"]
+    },
+    {
+      "id": "color_healing",
+      "nameJa": "カラー癒し瞑想（チャクラ虹）",
+      "nameEn": "Rainbow Chakra Color Healing",
+      "icon": "🌈",
+      "durationOptions": [15, 20, 30],
+      "defaultDuration": 20,
+      "description": "7つのチャクラそれぞれの色（赤→橙→黄→緑→青→藍→紫）を順に視覚化し、全エネルギーセンターをバランス調整します。",
+      "descriptionEn": "Visualize each chakra color (red → orange → yellow → green → blue → indigo → violet) in sequence to balance all seven energy centers.",
+      "benefits": [
+        "全チャクラのバランス調整",
+        "感情の安定化",
+        "創造性・直感力の向上",
+        "心身の統合・全体性の感覚"
+      ],
+      "benefitsEn": [
+        "Full chakra system balancing",
+        "Emotional stabilization",
+        "Enhanced creativity and intuition",
+        "Body-mind integration and wholeness"
+      ],
+      "chakraSequence": [
+        {
+          "chakra": "muladhara",
+          "nameJa": "ムーラーダーラ（根）",
+          "nameEn": "Root Chakra",
+          "color": "#CC0000",
+          "colorNameJa": "深紅",
+          "location": "尾てい骨・会陰部",
+          "affirmationJa": "私は大地に根を張り、安全です",
+          "affirmationEn": "I am rooted, I am safe"
+        },
+        {
+          "chakra": "svadhisthana",
+          "nameJa": "スヴァディシュターナ（丹田）",
+          "nameEn": "Sacral Chakra",
+          "color": "#FF6600",
+          "colorNameJa": "橙",
+          "location": "下腹部",
+          "affirmationJa": "私は感情と創造性の流れを受け入れます",
+          "affirmationEn": "I embrace my emotions and creativity"
+        },
+        {
+          "chakra": "manipura",
+          "nameJa": "マニプーラ（太陽神経叢）",
+          "nameEn": "Solar Plexus Chakra",
+          "color": "#FFCC00",
+          "colorNameJa": "黄金",
+          "location": "みぞおち",
+          "affirmationJa": "私は自信を持ち、自分の力を信頼します",
+          "affirmationEn": "I am confident and trust my inner power"
+        },
+        {
+          "chakra": "anahata",
+          "nameJa": "アナーハタ（心）",
+          "nameEn": "Heart Chakra",
+          "color": "#00AA44",
+          "colorNameJa": "エメラルド",
+          "location": "胸の中央",
+          "affirmationJa": "私は愛を与え、受け取ります",
+          "affirmationEn": "I give and receive love freely"
+        },
+        {
+          "chakra": "vishuddha",
+          "nameJa": "ヴィシュッダ（喉）",
+          "nameEn": "Throat Chakra",
+          "color": "#0088CC",
+          "colorNameJa": "空青",
+          "location": "喉",
+          "affirmationJa": "私は真実を穏やかに表現します",
+          "affirmationEn": "I express my truth with grace"
+        },
+        {
+          "chakra": "ajna",
+          "nameJa": "アージュニャー（第三の目）",
+          "nameEn": "Third Eye Chakra",
+          "color": "#3300AA",
+          "colorNameJa": "藍",
+          "location": "眉間",
+          "affirmationJa": "私は直感を信じ、内なる叡智を見ます",
+          "affirmationEn": "I trust my intuition and see with inner wisdom"
+        },
+        {
+          "chakra": "sahasrara",
+          "nameJa": "サハスラーラ（頂）",
+          "nameEn": "Crown Chakra",
+          "color": "#8800CC",
+          "colorNameJa": "紫白",
+          "location": "頭頂",
+          "affirmationJa": "私は宇宙意識と繋がっています",
+          "affirmationEn": "I am connected to universal consciousness"
+        }
+      ],
+      "instructions": [
+        "背筋を立てた座位または仰向けになります。",
+        "深呼吸3回で心身を落ち着けます。",
+        "尾てい骨に注意を向け、そこに深紅の光の球が輝くのを見ます。",
+        "吸うたびに光が明るくなり、吐くたびに安定していきます。3呼吸ずつ。",
+        "光をゆっくり上に引き上げ、次のチャクラの色に変えながら順に登ります。",
+        "頭頂で紫白の光が炸裂し、全身を虹色の光が包むのを感じます。",
+        "しばらくその状態にとどまり、全チャクラが調和していることを感じます。",
+        "光をゆっくり収め、根のチャクラに戻して大地に繋ぎ止めて終わります。"
+      ],
+      "instructionsEn": [
+        "Sit upright or lie down.",
+        "Take 3 deep breaths to settle body and mind.",
+        "Focus on the tailbone; visualize a crimson ball of light glowing there.",
+        "With each inhale the light brightens; with each exhale it stabilizes. 3 breaths per chakra.",
+        "Draw the light upward, shifting color as you reach each chakra.",
+        "At the crown, let violet-white light explode and wrap your whole body in rainbow light.",
+        "Rest in that state, feeling all chakras in harmony.",
+        "Slowly draw the light back down, anchoring at the root to ground and close."
+      ],
+      "backgroundMusic": "chakra_tones",
+      "difficulty": 3,
+      "tags": ["intermediate", "chakra", "visualization", "color", "balancing"]
+    },
+    {
+      "id": "centering",
+      "nameJa": "センタリング（今ここ）瞑想",
+      "nameEn": "Centering — Present Moment Meditation",
+      "icon": "🎯",
+      "durationOptions": [5, 10, 15],
+      "defaultDuration": 10,
+      "description": "思考の嵐から「今この瞬間」に戻るためのマインドフルネス瞑想。呼吸と五感を錨にします。",
+      "descriptionEn": "Return to the present moment from the storm of thoughts. Breath and the five senses serve as anchors.",
+      "benefits": [
+        "不安・心配の軽減",
+        "集中力・決断力の向上",
+        "感情の安定と観察能力",
+        "慢性ストレスへの長期的な耐性構築"
+      ],
+      "benefitsEn": [
+        "Reduced anxiety and worry",
+        "Improved focus and decision-making",
+        "Emotional stability and observational capacity",
+        "Long-term resilience to chronic stress"
+      ],
+      "instructions": [
+        "どんな姿勢でも構いません。今いる場所でそのまま始められます。",
+        "目を半眼（薄目）または閉じます。",
+        "【5-4-3-2-1グラウンディング】: 今見える5つのものを心の中で挙げ、聞こえる4つの音、感じる3つの身体感覚、嗅ぐ2つの匂い、味わえる1つの味を確認します。",
+        "呼吸に意識を戻します。「吸っている」「吐いている」と心の中でラベリングします。",
+        "思考が浮かんだら「考えている」と静かに観察し、川を流れる葉のように見送ります。",
+        "何度でも呼吸に戻ることが練習です。できないことではありません。",
+        "終わりに、目を開ける前に今この部屋、この身体にいることを感じ、感謝の気持ちで締めます。"
+      ],
+      "instructionsEn": [
+        "Any posture works — you can begin exactly where you are.",
+        "Half-open or close your eyes.",
+        "5-4-3-2-1 Grounding: name 5 things you can see, 4 sounds, 3 body sensations, 2 smells, 1 taste.",
+        "Return focus to breath, internally labeling 'breathing in' and 'breathing out'.",
+        "When thoughts arise, quietly observe 'thinking happening' and let them pass like leaves on a river.",
+        "Returning to breath repeatedly IS the practice — there is no 'failing'.",
+        "Before opening your eyes, feel yourself in this room, in this body, and close with gratitude."
+      ],
+      "chakra": "ajna",
+      "backgroundMusic": "silence_or_light_ambient",
+      "difficulty": 1,
+      "tags": ["beginner", "mindfulness", "anxiety", "grounding", "anytime"]
+    }
+  ]
+}
