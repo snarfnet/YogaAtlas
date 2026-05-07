@@ -1,0 +1,23 @@
+name: Finalize App Store Review Submission
+
+on:
+  workflow_dispatch:
+
+jobs:
+  finalize:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up App Store Connect API key
+      env:
+        ASC_API_KEY_CONTENT: ${{ secrets.ASC_API_KEY_CONTENT }}
+      run: |
+        echo "$ASC_API_KEY_CONTENT" | base64 -D > /tmp/asc_key.p8
+
+    - name: Install upload tools
+      run: pip3 install PyJWT requests
+
+    - name: Submit existing version for review
+      run: python3 scripts/finalize_review.py
