@@ -59,7 +59,9 @@ jobs:
         for SCREEN in home prescription meditation; do
           xcrun simctl terminate "$SIM_UDID" com.tokyonasu.YogaAtlas || true
           xcrun simctl launch "$SIM_UDID" com.tokyonasu.YogaAtlas -screenshots -screenshotScreen "$SCREEN"
-          sleep 8
+          sleep 6
+          xcrun simctl io "$SIM_UDID" screenshot "screenshots/raw/discard_${INDEX}_${SCREEN}.png"
+          sleep 12
           xcrun simctl io "$SIM_UDID" screenshot "screenshots/raw/iphone_${INDEX}_${SCREEN}.png"
           INDEX=$((INDEX + 1))
         done
@@ -91,6 +93,12 @@ jobs:
         sips -z 2732 2048 screenshots/raw/ipad_1_home.png --out screenshots/appstore/ipad_129_1_home.png
         sips -z 2732 2048 screenshots/raw/ipad_2_prescription.png --out screenshots/appstore/ipad_129_2_prescription.png
         sips -z 2732 2048 screenshots/raw/ipad_3_meditation.png --out screenshots/appstore/ipad_129_3_meditation.png
+
+    - name: Upload screenshot preview artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-store-screenshots
+        path: screenshots/appstore/*.png
 
     - name: Patch Info.plist build number
       run: |

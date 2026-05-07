@@ -19,7 +19,7 @@ struct DailyYogaView: View {
                                 Text("今日の10分ヨガ")
                                     .font(AppTheme.title(32))
                                     .foregroundColor(.white)
-                                Text("朝の呼吸、背骨、バランス、休息を短い流れで。")
+                                Text("朝の呼吸、背骨、バランス、休息をやさしい流れで。")
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }
@@ -34,7 +34,7 @@ struct DailyYogaView: View {
                                     Text("今日のテーマ")
                                         .font(AppTheme.body(18, weight: .semibold))
                                         .foregroundColor(AppTheme.ink)
-                                    Text("息を急がず、背骨を気持ちよく目覚めさせる")
+                                    Text("息を急がず、背骨を気持ちよく目覚めさせる。")
                                         .font(AppTheme.body(14))
                                         .foregroundColor(AppTheme.muted)
                                 }

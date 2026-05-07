@@ -32,7 +32,7 @@ struct PoseLibraryView: View {
                                 Text("呼吸から、体を読み解く。")
                                     .font(AppTheme.title(30))
                                     .foregroundColor(.white)
-                                Text("ポーズ、瞑想、チャクラ、悩み別ケアを一つの流れで学べます。")
+                                Text("ポーズ、瞑想、チャクラ、悩み別ケアをひとつの流れで学べます。")
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                                     .lineSpacing(3)

@@ -15,7 +15,7 @@ struct PrescriptionView: View {
                                 Text("悩みから選ぶヨガ")
                                     .font(AppTheme.title(31))
                                     .foregroundColor(.white)
-                                Text("疲れ、肩こり、眠り。今日の状態に合うやさしい処方。")
+                                Text("疲れ、肩こり、眠り。今日の状態に合うやさしい処方です。")
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }

@@ -13,7 +13,7 @@ struct ChakraView: View {
                                 Text("チャクラで体を読む")
                                     .font(AppTheme.title(31))
                                     .foregroundColor(.white)
-                                Text("ポーズの目的を、心と体の感覚でつなげます。")
+                                Text("ポーズの目的を、心と体の感覚でつなぎます。")
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }

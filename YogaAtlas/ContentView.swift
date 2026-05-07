@@ -7,7 +7,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             PoseLibraryView()
-                .tabItem { Label("ポーズ", systemImage: "figure.walk") }
+                .tabItem { Label("ポーズ", systemImage: "figure.yoga") }
                 .tag(0)
 
             PrescriptionView()
