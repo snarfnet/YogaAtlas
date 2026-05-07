@@ -69,12 +69,28 @@ jobs:
         cp screenshots/raw/iphone_2_prescription.png screenshots/raw/ipad_2_prescription.png
         cp screenshots/raw/iphone_3_meditation.png screenshots/raw/ipad_3_meditation.png
 
-        sips -z 2796 1290 screenshots/raw/iphone_1_home.png --out screenshots/appstore/iphone_1_home.png
-        sips -z 2796 1290 screenshots/raw/iphone_2_prescription.png --out screenshots/appstore/iphone_2_prescription.png
-        sips -z 2796 1290 screenshots/raw/iphone_3_meditation.png --out screenshots/appstore/iphone_3_meditation.png
-        sips -z 2732 2048 screenshots/raw/ipad_1_home.png --out screenshots/appstore/ipad_1_home.png
-        sips -z 2732 2048 screenshots/raw/ipad_2_prescription.png --out screenshots/appstore/ipad_2_prescription.png
-        sips -z 2732 2048 screenshots/raw/ipad_3_meditation.png --out screenshots/appstore/ipad_3_meditation.png
+        for item in \
+          "69 2868 1320" \
+          "67 2796 1290" \
+          "65 2688 1242" \
+          "61 2532 1170" \
+          "58 2436 1125"; do
+          set -- $item
+          suffix=$1
+          height=$2
+          width=$3
+          sips -z "$height" "$width" screenshots/raw/iphone_1_home.png --out "screenshots/appstore/iphone_${suffix}_1_home.png"
+          sips -z "$height" "$width" screenshots/raw/iphone_2_prescription.png --out "screenshots/appstore/iphone_${suffix}_2_prescription.png"
+          sips -z "$height" "$width" screenshots/raw/iphone_3_meditation.png --out "screenshots/appstore/iphone_${suffix}_3_meditation.png"
+        done
+
+        sips -z 2208 1242 screenshots/raw/iphone_1_home.png --out screenshots/appstore/iphone_55_1_home.png
+        sips -z 2208 1242 screenshots/raw/iphone_2_prescription.png --out screenshots/appstore/iphone_55_2_prescription.png
+        sips -z 2208 1242 screenshots/raw/iphone_3_meditation.png --out screenshots/appstore/iphone_55_3_meditation.png
+
+        sips -z 2732 2048 screenshots/raw/ipad_1_home.png --out screenshots/appstore/ipad_129_1_home.png
+        sips -z 2732 2048 screenshots/raw/ipad_2_prescription.png --out screenshots/appstore/ipad_129_2_prescription.png
+        sips -z 2732 2048 screenshots/raw/ipad_3_meditation.png --out screenshots/appstore/ipad_129_3_meditation.png
 
     - name: Patch Info.plist build number
       run: |

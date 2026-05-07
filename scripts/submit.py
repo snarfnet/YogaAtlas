@@ -1,4 +1,4 @@
-import hashlib
+﻿import hashlib
 import os
 import sys
 import time
@@ -14,15 +14,20 @@ BUILD_NUMBER = sys.argv[1]
 SCREENSHOT_DIR = 'screenshots/appstore'
 
 SCREENSHOT_GROUPS = [
-    ('APP_IPHONE_67', ['iphone_1_home.png', 'iphone_2_prescription.png', 'iphone_3_meditation.png']),
-    ('APP_IPAD_PRO_3GEN_129', ['ipad_1_home.png', 'ipad_2_prescription.png', 'ipad_3_meditation.png']),
+    ('APP_IPHONE_69', ['iphone_69_1_home.png', 'iphone_69_2_prescription.png', 'iphone_69_3_meditation.png']),
+    ('APP_IPHONE_67', ['iphone_67_1_home.png', 'iphone_67_2_prescription.png', 'iphone_67_3_meditation.png']),
+    ('APP_IPHONE_65', ['iphone_65_1_home.png', 'iphone_65_2_prescription.png', 'iphone_65_3_meditation.png']),
+    ('APP_IPHONE_61', ['iphone_61_1_home.png', 'iphone_61_2_prescription.png', 'iphone_61_3_meditation.png']),
+    ('APP_IPHONE_58', ['iphone_58_1_home.png', 'iphone_58_2_prescription.png', 'iphone_58_3_meditation.png']),
+    ('APP_IPHONE_55', ['iphone_55_1_home.png', 'iphone_55_2_prescription.png', 'iphone_55_3_meditation.png']),
+    ('APP_IPAD_PRO_3GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
+    ('APP_IPAD_PRO_2GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
 ]
 
 WHATS_NEW = {
     'ja': 'ヨガの魅力が伝わるようにデザインを大幅刷新しました。写真付きの画面、読みやすいポーズ解説、悩み別ケア、瞑想、チャクラ画面を改善しています。',
     'en-US': 'Refreshed the yoga experience with richer visuals, clearer pose guidance, symptom care, meditation, chakra content, and updated screenshots.',
 }
-
 p8 = open('/tmp/asc_key.p8').read()
 
 
@@ -113,6 +118,10 @@ def find_or_create_version(app_id):
     version_id = body['data']['id']
     print(f'Created version {APP_VERSION}: {version_id}')
     return version_id, 'PREPARE_FOR_SUBMISSION'
+
+
+def version_is_already_submitted(state):
+    return state in ('WAITING_FOR_REVIEW', 'IN_REVIEW', 'PENDING_DEVELOPER_RELEASE', 'PENDING_APPLE_RELEASE')
 
 
 def wait_for_build(app_id):
@@ -217,8 +226,8 @@ def upload_screenshots(version_id):
                     }
                 })
                 if r.status_code not in (200, 201):
-                    print(f'    Create set {display_type}: FAILED {r.status_code} {r.text[:500]}')
-                    sys.exit(1)
+                    print(f'    Create set {display_type}: SKIPPED {r.status_code} {r.text[:500]}')
+                    continue
                 set_id = body['data']['id']
             print(f'    Display: {display_type} set={set_id}')
             delete_existing_screenshots(set_id)
@@ -298,9 +307,9 @@ def submit_for_review(app_id, version_id):
 
 app_id = find_app_id()
 version_id, version_state = find_or_create_version(app_id)
-if version_state in ('WAITING_FOR_REVIEW', 'IN_REVIEW'):
-    print(f'Version {APP_VERSION} already in review ({version_state}). Nothing to do.')
-    sys.exit(0)
+already_submitted = version_is_already_submitted(version_state)
+if already_submitted:
+    print(f'Version {APP_VERSION} is already submitted ({version_state}). Updating screenshots if App Store Connect allows it.')
 
 build_id = wait_for_build(app_id)
 set_export_compliance(build_id)
@@ -309,4 +318,8 @@ upload_screenshots(version_id)
 print('Waiting for App Store Connect to finish screenshot processing...')
 time.sleep(300)
 assign_build(version_id, build_id)
-submit_for_review(app_id, version_id)
+if already_submitted:
+    print(f'Version {APP_VERSION} was already submitted. Screenshot refresh finished; no new review submission needed.')
+else:
+    submit_for_review(app_id, version_id)
+
