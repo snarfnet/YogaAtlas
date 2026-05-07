@@ -19,7 +19,7 @@ SCREENSHOT_GROUPS = [
     ('APP_IPHONE_58', ['iphone_58_1_home.png', 'iphone_58_2_prescription.png', 'iphone_58_3_meditation.png']),
     ('APP_IPHONE_55', ['iphone_55_1_home.png', 'iphone_55_2_prescription.png', 'iphone_55_3_meditation.png']),
     ('APP_IPAD_PRO_3GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
-    ('APP_IPAD_PRO_3GEN_11', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
+    ('APP_IPAD_PRO_3GEN_11', ['ipad_11_1_home.png', 'ipad_11_2_prescription.png', 'ipad_11_3_meditation.png']),
 ]
 
 WHATS_NEW = {

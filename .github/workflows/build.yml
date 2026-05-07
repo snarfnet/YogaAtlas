@@ -93,6 +93,9 @@ jobs:
         sips -z 2732 2048 screenshots/raw/ipad_1_home.png --out screenshots/appstore/ipad_129_1_home.png
         sips -z 2732 2048 screenshots/raw/ipad_2_prescription.png --out screenshots/appstore/ipad_129_2_prescription.png
         sips -z 2732 2048 screenshots/raw/ipad_3_meditation.png --out screenshots/appstore/ipad_129_3_meditation.png
+        sips -z 2388 1668 screenshots/raw/ipad_1_home.png --out screenshots/appstore/ipad_11_1_home.png
+        sips -z 2388 1668 screenshots/raw/ipad_2_prescription.png --out screenshots/appstore/ipad_11_2_prescription.png
+        sips -z 2388 1668 screenshots/raw/ipad_3_meditation.png --out screenshots/appstore/ipad_11_3_meditation.png
 
     - name: Upload screenshot preview artifact
       uses: actions/upload-artifact@v4
