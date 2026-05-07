@@ -1,175 +1,77 @@
 import SwiftUI
 
 struct ChakraView: View {
-    @EnvironmentObject var store: DataStore
-    @State private var selected: Chakra? = nil
-
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
-                AppTheme.parchment.ignoresSafeArea()
+                YogaScreenBackground()
                 ScrollView {
-                    VStack(spacing: 0) {
-                        // Header illustration
-                        Text("🌈")
-                            .font(.system(size: 48))
-                            .padding(.top, 16)
-
-                        Text("7つのチャクラ")
-                            .font(AppTheme.title(20))
-                            .foregroundColor(AppTheme.inkBrown)
-                            .padding(.bottom, 4)
-                        Text("エネルギーセンターを診断し、対応ポーズを実践しましょう")
-                            .font(AppTheme.caption(13))
-                            .foregroundColor(AppTheme.inkLight)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 32)
-                            .padding(.bottom, 20)
-
-                        // Chakra spine
-                        ForEach(Chakra.all.reversed()) { chakra in
-                            ChakraRow(chakra: chakra, isSelected: selected?.id == chakra.id)
-                                .onTapGesture {
-                                    withAnimation(.spring()) {
-                                        selected = selected?.id == chakra.id ? nil : chakra
-                                    }
-                                }
-
-                            if selected?.id == chakra.id {
-                                ChakraDetail(chakra: chakra, poses: store.poses)
-                                    .transition(.opacity.combined(with: .move(edge: .top)))
+                    VStack(spacing: 22) {
+                        YogaHeroCard(imageName: "ChakraAura", height: 310) {
+                            VStack(alignment: .leading, spacing: 9) {
+                                Pill(text: "Energy Map", color: .white)
+                                Text("チャクラで体を読む")
+                                    .font(AppTheme.title(31))
+                                    .foregroundColor(.white)
+                                Text("ポーズの目的を、心と体の感覚でつなげます。")
+                                    .font(AppTheme.body(15))
+                                    .foregroundColor(.white.opacity(0.92))
                             }
                         }
-                        Spacer(minLength: 32)
+
+                        VStack(spacing: 13) {
+                            SectionTitle(title: "7つのエネルギー", subtitle: "気になるテーマから練習を選べます")
+                            ForEach(Chakra.all) { chakra in
+                                ChakraRow(chakra: chakra)
+                            }
+                        }
                     }
+                    .padding(18)
                 }
             }
-            .navigationTitle("🔮 チャクラ")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("チャクラ")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 struct ChakraRow: View {
     let chakra: Chakra
-    let isSelected: Bool
 
     var body: some View {
-        HStack(spacing: 14) {
-            // Color ball
-            ZStack {
-                Circle()
-                    .fill(Color(hex: chakra.color).opacity(0.2))
-                    .frame(width: 50, height: 50)
-                Circle()
-                    .fill(Color(hex: chakra.color))
-                    .frame(width: 34, height: 34)
-                Text("\(chakra.number)")
-                    .font(AppTheme.caption(14))
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-            }
+        YogaCard {
+            HStack(alignment: .top, spacing: 14) {
+                ZStack {
+                    Circle()
+                        .fill(Color(hex: chakra.color).opacity(0.20))
+                        .frame(width: 58, height: 58)
+                    Circle()
+                        .fill(Color(hex: chakra.color))
+                        .frame(width: 34, height: 34)
+                    Text("\(chakra.number)")
+                        .font(AppTheme.caption(12, weight: .bold))
+                        .foregroundColor(.white)
+                }
 
-            VStack(alignment: .leading, spacing: 2) {
-                Text(chakra.nameJa)
-                    .font(AppTheme.body(16))
-                    .foregroundColor(AppTheme.inkBrown)
-                Text(chakra.sanskritName)
-                    .font(.custom("Georgia-Italic", size: 12))
-                    .foregroundColor(AppTheme.goldAccent)
-                Text(chakra.keywords.prefix(3).joined(separator: " · "))
-                    .font(AppTheme.caption(12))
-                    .foregroundColor(AppTheme.inkLight)
-            }
-            Spacer()
-            Image(systemName: isSelected ? "chevron.up" : "chevron.down")
-                .foregroundColor(AppTheme.goldAccent)
-                .font(.caption)
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 12)
-        .background(isSelected ? Color(hex: chakra.color).opacity(0.08) : Color.clear)
-    }
-}
-
-struct ChakraDetail: View {
-    let chakra: Chakra
-    let poses: [Pose]
-
-    private var relatedPoses: [Pose] {
-        chakra.poseIds.compactMap { id in poses.first { $0.id == id } }
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Affirmation
-            Text("「\(chakra.affirmation)」")
-                .font(.custom("Georgia-Italic", size: 15))
-                .foregroundColor(Color(hex: chakra.color))
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color(hex: chakra.color).opacity(0.1))
-                .cornerRadius(10)
-
-            // Info
-            HStack(spacing: 20) {
-                InfoPill(icon: "📍", label: chakra.location)
-                InfoPill(icon: "🌿", label: chakra.element)
-            }
-
-            // Related poses
-            if !relatedPoses.isEmpty {
-                Text("対応ポーズ")
-                    .font(AppTheme.caption(13))
-                    .foregroundColor(AppTheme.inkLight)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        ForEach(relatedPoses) { pose in
-                            NavigationLink(destination: PoseDetailView(pose: pose)) {
-                                MiniPoseCard(pose: pose, accentColor: Color(hex: chakra.color))
-                            }
-                            .buttonStyle(.plain)
+                VStack(alignment: .leading, spacing: 7) {
+                    Text(chakra.nameJa)
+                        .font(AppTheme.title(20))
+                        .foregroundColor(AppTheme.ink)
+                    Text("\(chakra.nameEn) / \(chakra.location) / \(chakra.element)")
+                        .font(AppTheme.caption(12))
+                        .foregroundColor(AppTheme.muted)
+                    Text(chakra.affirmation)
+                        .font(AppTheme.body(14))
+                        .foregroundColor(AppTheme.ink)
+                        .lineSpacing(3)
+                    HStack {
+                        ForEach(chakra.keywords, id: \.self) { keyword in
+                            Pill(text: keyword, color: Color(hex: chakra.color))
                         }
                     }
                 }
+                Spacer()
             }
-        }
-        .padding(.horizontal, 20)
-        .padding(.bottom, 16)
-    }
-}
-
-struct InfoPill: View {
-    let icon: String
-    let label: String
-
-    var body: some View {
-        HStack(spacing: 4) {
-            Text(icon).font(.caption)
-            Text(label).font(AppTheme.caption(13)).foregroundColor(AppTheme.inkBrown)
-        }
-    }
-}
-
-struct MiniPoseCard: View {
-    let pose: Pose
-    let accentColor: Color
-
-    var body: some View {
-        VStack(spacing: 4) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(accentColor.opacity(0.15))
-                    .frame(width: 80, height: 80)
-                Text("🧘").font(.system(size: 30))
-            }
-            Text(pose.nameJa)
-                .font(AppTheme.caption(11))
-                .foregroundColor(AppTheme.inkBrown)
-                .frame(width: 80)
-                .lineLimit(2)
-                .multilineTextAlignment(.center)
         }
     }
 }

@@ -2,155 +2,89 @@ import SwiftUI
 
 struct PrescriptionView: View {
     @EnvironmentObject var store: DataStore
-    @State private var selected: Symptom? = nil
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
-                AppTheme.parchment.ignoresSafeArea()
+                YogaScreenBackground()
                 ScrollView {
-                    VStack(spacing: 12) {
-                        Text("今日の不調を選んでください")
-                            .font(AppTheme.caption(14))
-                            .foregroundColor(AppTheme.inkLight)
-                            .padding(.top, 8)
-
-                        ForEach(store.symptoms) { symptom in
-                            SymptomCard(symptom: symptom)
-                                .onTapGesture {
-                                    withAnimation(.spring()) {
-                                        selected = selected?.id == symptom.id ? nil : symptom
-                                    }
-                                }
-
-                            if selected?.id == symptom.id {
-                                SymptomPrescriptionPanel(symptom: symptom, poses: store.poses)
-                                    .transition(.opacity.combined(with: .move(edge: .top)))
-                                    .padding(.horizontal)
+                    VStack(spacing: 22) {
+                        YogaHeroCard(imageName: "RestorativeProps", height: 265) {
+                            VStack(alignment: .leading, spacing: 9) {
+                                Pill(text: "Care Guide", color: .white)
+                                Text("悩みから選ぶヨガ")
+                                    .font(AppTheme.title(31))
+                                    .foregroundColor(.white)
+                                Text("疲れ、肩こり、眠り。今日の状態に合うやさしい処方。")
+                                    .font(AppTheme.body(15))
+                                    .foregroundColor(.white.opacity(0.92))
                             }
                         }
-                        Spacer(minLength: 32)
+
+                        VStack(spacing: 14) {
+                            SectionTitle(title: "体調別ガイド", subtitle: "無理に頑張らず、必要なケアから始めましょう")
+                            ForEach(store.symptoms) { symptom in
+                                SymptomCard(symptom: symptom)
+                            }
+                        }
                     }
-                    .padding(.horizontal)
+                    .padding(18)
                 }
             }
-            .navigationTitle("💊 症状別処方箋")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("悩み別")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 struct SymptomCard: View {
+    @EnvironmentObject var store: DataStore
     let symptom: Symptom
 
     var body: some View {
-        HStack(spacing: 14) {
-            Text(symptom.icon)
-                .font(.system(size: 28))
-                .frame(width: 44, height: 44)
-                .background(AppTheme.parchmentDark)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-            VStack(alignment: .leading, spacing: 2) {
-                Text(symptom.nameJa)
-                    .font(AppTheme.body(16))
-                    .foregroundColor(AppTheme.inkBrown)
-                Text(symptom.description)
-                    .font(AppTheme.caption(12))
-                    .foregroundColor(AppTheme.inkLight)
-                    .lineLimit(2)
-            }
-            Spacer()
-            Image(systemName: "chevron.right")
-                .foregroundColor(AppTheme.goldAccent)
-                .font(.caption)
-        }
-        .padding(12)
-        .background(AppTheme.cardBackground())
-    }
-}
-
-struct SymptomPrescriptionPanel: View {
-    let symptom: Symptom
-    let poses: [Pose]
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            // Recommended poses
-            Text("処方ポーズ")
-                .font(AppTheme.title(15))
-                .foregroundColor(AppTheme.inkBrown)
-
-            ForEach(symptom.recommendedPoses, id: \.poseId) { rec in
-                if let pose = poses.first(where: { $0.id == rec.poseId }) {
-                    NavigationLink(destination: PoseDetailView(pose: pose)) {
-                        PrescriptionPoseRow(pose: pose, reason: rec.reason, duration: rec.duration)
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-
-            // Tips
-            if !symptom.tips.isEmpty {
-                Divider().background(AppTheme.goldAccent.opacity(0.3))
-                Text("💡 アドバイス")
-                    .font(AppTheme.title(15))
-                    .foregroundColor(AppTheme.inkBrown)
-                ForEach(symptom.tips, id: \.self) { tip in
-                    HStack(alignment: .top, spacing: 8) {
-                        Text("•").foregroundColor(AppTheme.goldAccent)
-                        Text(tip)
+        YogaCard {
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(spacing: 12) {
+                    Image(systemName: symptom.icon)
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
+                        .frame(width: 48, height: 48)
+                        .background(AppTheme.clay, in: Circle())
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(symptom.nameJa)
+                            .font(AppTheme.title(21))
+                            .foregroundColor(AppTheme.ink)
+                        Text(symptom.description)
                             .font(AppTheme.body(14))
-                            .foregroundColor(AppTheme.inkBrown)
-                            .fixedSize(horizontal: false, vertical: true)
+                            .foregroundColor(AppTheme.muted)
+                            .lineSpacing(3)
+                    }
+                }
+
+                VStack(spacing: 10) {
+                    ForEach(symptom.recommendedPoses, id: \.poseId) { item in
+                        if let pose = store.pose(for: item.poseId) {
+                            HStack(spacing: 10) {
+                                Image(pose.imageFile)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 54, height: 54)
+                                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text(pose.nameJa)
+                                        .font(AppTheme.body(15, weight: .semibold))
+                                        .foregroundColor(AppTheme.ink)
+                                    Text(item.reason)
+                                        .font(AppTheme.caption(12))
+                                        .foregroundColor(AppTheme.muted)
+                                }
+                                Spacer()
+                                Pill(text: "\(item.duration)分", color: AppTheme.sageDeep)
+                            }
+                        }
                     }
                 }
             }
-
-            // Avoid
-            if !symptom.avoidPoses.isEmpty {
-                HStack(spacing: 6) {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(AppTheme.dustyRose)
-                        .font(.caption)
-                    Text("避けるべきポーズ: \(symptom.avoidPoses.joined(separator: ", "))")
-                        .font(AppTheme.caption(12))
-                        .foregroundColor(AppTheme.dustyRose)
-                }
-            }
         }
-        .padding(14)
-        .background(AppTheme.parchmentDark.opacity(0.5))
-        .cornerRadius(12)
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.goldAccent.opacity(0.3)))
-    }
-}
-
-struct PrescriptionPoseRow: View {
-    let pose: Pose
-    let reason: String
-    let duration: Int
-
-    var body: some View {
-        HStack(spacing: 12) {
-            Text("🧘")
-                .font(.system(size: 24))
-                .frame(width: 40, height: 40)
-                .background(AppTheme.parchmentDark)
-                .cornerRadius(8)
-            VStack(alignment: .leading, spacing: 2) {
-                Text(pose.nameJa)
-                    .font(AppTheme.body(15))
-                    .foregroundColor(AppTheme.inkBrown)
-                Text(reason)
-                    .font(AppTheme.caption(12))
-                    .foregroundColor(AppTheme.inkLight)
-                    .lineLimit(2)
-            }
-            Spacer()
-            Text("\(duration)分")
-                .font(AppTheme.caption(12))
-                .foregroundColor(AppTheme.goldAccent)
-        }
-        .padding(.vertical, 4)
     }
 }

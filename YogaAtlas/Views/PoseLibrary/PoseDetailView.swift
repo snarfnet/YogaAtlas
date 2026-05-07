@@ -5,173 +5,96 @@ struct PoseDetailView: View {
 
     var body: some View {
         ZStack {
-            AppTheme.parchment.ignoresSafeArea()
+            YogaScreenBackground()
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-
-                    // Hero image
-                    ZStack {
-                        Rectangle()
-                            .fill(AppTheme.parchmentDark)
-                            .frame(height: 260)
-                        if let uiImage = UIImage(named: pose.imageFile) {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(height: 260)
-                                .clipped()
-                        } else {
-                            Text("🧘")
-                                .font(.system(size: 80))
-                        }
-                        // Golden overlay at bottom
-                        VStack {
-                            Spacer()
-                            LinearGradient(
-                                colors: [.clear, AppTheme.parchment],
-                                startPoint: .top, endPoint: .bottom
-                            )
-                            .frame(height: 80)
+                VStack(spacing: 20) {
+                    YogaHeroCard(imageName: pose.imageFile, height: 320) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Pill(text: pose.category, color: .white)
+                            Text(pose.nameJa)
+                                .font(AppTheme.title(32))
+                                .foregroundColor(.white)
+                            Text(pose.sanskrit)
+                                .font(AppTheme.body(16))
+                                .foregroundColor(.white.opacity(0.9))
                         }
                     }
 
-                    // Title block
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(pose.nameJa)
-                            .font(AppTheme.title(26))
-                            .foregroundColor(AppTheme.inkBrown)
-                        Text(pose.nameEn)
-                            .font(AppTheme.body(16))
-                            .foregroundColor(AppTheme.inkLight)
-                        Text(pose.sanskrit)
-                            .font(.custom("Georgia-Italic", size: 14))
-                            .foregroundColor(AppTheme.goldAccent)
-                    }
-                    .padding(.horizontal)
-
-                    // Tags row
                     HStack(spacing: 10) {
-                        TagBadge(label: pose.category, color: AppTheme.sage)
-                        TagBadge(label: "難易度 \(String(repeating: "●", count: pose.difficulty))", color: AppTheme.dustyRose)
-                        TagBadge(label: "\(pose.duration)分", color: AppTheme.lavender)
-                    }
-                    .padding(.horizontal)
-
-                    Divider().background(AppTheme.goldAccent.opacity(0.3)).padding(.horizontal)
-
-                    // Benefits
-                    SectionBlock(title: "✨ 効能", items: pose.benefits)
-
-                    // Instructions
-                    NumberedBlock(title: "📋 やり方", items: pose.instructions)
-
-                    // Cautions
-                    if !pose.cautions.isEmpty {
-                        SectionBlock(title: "⚠️ 注意点", items: pose.cautions, color: AppTheme.dustyRose)
+                        InfoTile(icon: "clock.fill", title: "\(pose.duration)分", subtitle: "目安")
+                        InfoTile(icon: "flame.fill", title: "Lv.\(pose.difficulty)", subtitle: "強度")
+                        InfoTile(icon: "sparkles", title: chakraName(for: pose.chakra), subtitle: "チャクラ")
                     }
 
-                    // Chakra
-                    ChakraBadgeRow(chakraId: pose.chakra)
-                        .padding(.horizontal)
-
-                    Spacer(minLength: 32)
+                    DetailSection(title: "効果", items: pose.benefits, icon: "leaf.fill")
+                    DetailSection(title: "やり方", items: pose.instructions, icon: "list.number")
+                    DetailSection(title: "注意", items: pose.cautions, icon: "exclamationmark.triangle.fill")
                 }
+                .padding(18)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
     }
-}
 
-// MARK: - Sub-views
-struct TagBadge: View {
-    let label: String
-    let color: Color
-
-    var body: some View {
-        Text(label)
-            .font(AppTheme.caption(12))
-            .foregroundColor(.white)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 4)
-            .background(color.opacity(0.8))
-            .clipShape(Capsule())
+    private func chakraName(for id: String) -> String {
+        Chakra.all.first { $0.id == id }?.nameEn ?? "Body"
     }
 }
 
-struct SectionBlock: View {
+struct InfoTile: View {
+    let icon: String
     let title: String
-    let items: [String]
-    var color: Color = AppTheme.sage
+    let subtitle: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title)
-                .font(AppTheme.title(16))
-                .foregroundColor(AppTheme.inkBrown)
-                .padding(.horizontal)
-            ForEach(items, id: \.self) { item in
-                HStack(alignment: .top, spacing: 8) {
-                    Circle()
-                        .fill(color)
-                        .frame(width: 6, height: 6)
-                        .padding(.top, 6)
-                    Text(item)
-                        .font(AppTheme.body(15))
-                        .foregroundColor(AppTheme.inkBrown)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                .padding(.horizontal)
+        YogaCard {
+            VStack(spacing: 8) {
+                Image(systemName: icon)
+                    .foregroundColor(AppTheme.sageDeep)
+                Text(title)
+                    .font(AppTheme.body(15, weight: .semibold))
+                    .foregroundColor(AppTheme.ink)
+                    .minimumScaleFactor(0.75)
+                    .lineLimit(1)
+                Text(subtitle)
+                    .font(AppTheme.caption(11))
+                    .foregroundColor(AppTheme.muted)
             }
+            .frame(maxWidth: .infinity)
         }
     }
 }
 
-struct NumberedBlock: View {
+struct DetailSection: View {
     let title: String
     let items: [String]
+    let icon: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title)
-                .font(AppTheme.title(16))
-                .foregroundColor(AppTheme.inkBrown)
-                .padding(.horizontal)
-            ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-                HStack(alignment: .top, spacing: 10) {
-                    Text("\(index + 1)")
-                        .font(AppTheme.caption(13))
-                        .foregroundColor(.white)
-                        .frame(width: 22, height: 22)
-                        .background(AppTheme.goldAccent)
-                        .clipShape(Circle())
-                    Text(item)
-                        .font(AppTheme.body(15))
-                        .foregroundColor(AppTheme.inkBrown)
-                        .fixedSize(horizontal: false, vertical: true)
+        YogaCard {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Image(systemName: icon)
+                        .foregroundColor(AppTheme.clay)
+                    Text(title)
+                        .font(AppTheme.title(20))
+                        .foregroundColor(AppTheme.ink)
                 }
-                .padding(.horizontal)
+                ForEach(Array(items.enumerated()), id: \.offset) { index, item in
+                    HStack(alignment: .top, spacing: 10) {
+                        Text("\(index + 1)")
+                            .font(AppTheme.caption(12, weight: .bold))
+                            .foregroundColor(.white)
+                            .frame(width: 24, height: 24)
+                            .background(AppTheme.sageDeep, in: Circle())
+                        Text(item)
+                            .font(AppTheme.body(15))
+                            .foregroundColor(AppTheme.ink)
+                            .lineSpacing(3)
+                    }
+                }
             }
-        }
-    }
-}
-
-struct ChakraBadgeRow: View {
-    let chakraId: String
-
-    private var chakra: Chakra? {
-        Chakra.all.first { $0.id == chakraId }
-    }
-
-    var body: some View {
-        if let c = chakra {
-            HStack(spacing: 10) {
-                Circle()
-                    .fill(Color(hex: c.color))
-                    .frame(width: 18, height: 18)
-                Text("対応チャクラ: \(c.nameJa) (\(c.nameEn))")
-                    .font(AppTheme.body(14))
-                    .foregroundColor(AppTheme.inkBrown)
-            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }

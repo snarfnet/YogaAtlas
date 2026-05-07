@@ -5,65 +5,106 @@ struct PoseLibraryView: View {
     @State private var searchText = ""
     @State private var selectedCategory: String? = nil
 
-    private let categories = ["スタンディング", "バランス", "フォワードベンド",
-                               "バックベンド", "ツイスト", "インバージョン",
-                               "リストラティブ", "フロア"]
+    private var categories: [String] {
+        Array(Set(store.poses.map(\.category))).sorted()
+    }
 
     private var filtered: [Pose] {
         store.poses.filter { pose in
-            let matchSearch = searchText.isEmpty ||
-                pose.nameJa.contains(searchText) ||
-                pose.nameEn.localizedCaseInsensitiveContains(searchText) ||
-                pose.sanskrit.localizedCaseInsensitiveContains(searchText)
-            let matchCat = selectedCategory == nil || pose.category == selectedCategory
-            return matchSearch && matchCat
+            let matchesText = searchText.isEmpty
+                || pose.nameJa.localizedCaseInsensitiveContains(searchText)
+                || pose.nameEn.localizedCaseInsensitiveContains(searchText)
+                || pose.sanskrit.localizedCaseInsensitiveContains(searchText)
+            let matchesCategory = selectedCategory == nil || pose.category == selectedCategory
+            return matchesText && matchesCategory
         }
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
-                AppTheme.parchment.ignoresSafeArea()
-
+                YogaScreenBackground()
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        // Category chips
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) {
-                                CategoryChip(title: "すべて", isSelected: selectedCategory == nil) {
-                                    selectedCategory = nil
-                                }
-                                ForEach(categories, id: \.self) { cat in
-                                    CategoryChip(title: cat, isSelected: selectedCategory == cat) {
-                                        selectedCategory = selectedCategory == cat ? nil : cat
+                    VStack(spacing: 22) {
+                        YogaHeroCard(imageName: "YogaHero", height: 260) {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Pill(text: "Yoga Atlas", color: .white)
+                                Text("呼吸から、体を読み解く。")
+                                    .font(AppTheme.title(30))
+                                    .foregroundColor(.white)
+                                Text("ポーズ、瞑想、チャクラ、悩み別ケアを一つの流れで学べます。")
+                                    .font(AppTheme.body(15))
+                                    .foregroundColor(.white.opacity(0.92))
+                                    .lineSpacing(3)
+                            }
+                        }
+
+                        HStack(spacing: 10) {
+                            SummaryBadge(value: "\(store.poses.count)", label: "ポーズ")
+                            SummaryBadge(value: "\(store.symptoms.count)", label: "悩み別")
+                            SummaryBadge(value: "\(store.meditations.count)", label: "瞑想")
+                        }
+
+                        VStack(spacing: 14) {
+                            SectionTitle(title: "ポーズ図鑑", subtitle: "目的に合わせて、無理なく選べる基本ポーズ")
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 10) {
+                                    CategoryChip(title: "すべて", isSelected: selectedCategory == nil) {
+                                        selectedCategory = nil
+                                    }
+                                    ForEach(categories, id: \.self) { category in
+                                        CategoryChip(title: category, isSelected: selectedCategory == category) {
+                                            selectedCategory = selectedCategory == category ? nil : category
+                                        }
                                     }
                                 }
+                                .padding(.vertical, 2)
                             }
-                            .padding(.horizontal)
-                        }
 
-                        // Pose grid
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                            ForEach(filtered) { pose in
-                                NavigationLink(destination: PoseDetailView(pose: pose)) {
-                                    PoseCard(pose: pose)
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 14) {
+                                ForEach(filtered) { pose in
+                                    NavigationLink(value: pose.id) {
+                                        PoseCard(pose: pose)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
-                                .buttonStyle(.plain)
                             }
                         }
-                        .padding(.horizontal)
                     }
-                    .padding(.top, 8)
+                    .padding(18)
                 }
             }
-            .navigationTitle("📖 ポーズ大全")
-            .navigationBarTitleDisplayMode(.large)
-            .searchable(text: $searchText, prompt: "ポーズを検索…")
+            .navigationTitle("ヨガアトラス")
+            .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $searchText, prompt: "ポーズを検索")
+            .navigationDestination(for: String.self) { id in
+                if let pose = store.pose(for: id) {
+                    PoseDetailView(pose: pose)
+                }
+            }
         }
     }
 }
 
-// MARK: - Sub-views
+struct SummaryBadge: View {
+    let value: String
+    let label: String
+
+    var body: some View {
+        YogaCard {
+            VStack(spacing: 4) {
+                Text(value)
+                    .font(AppTheme.title(24))
+                    .foregroundColor(AppTheme.sageDeep)
+                Text(label)
+                    .font(AppTheme.caption(12))
+                    .foregroundColor(AppTheme.muted)
+            }
+            .frame(maxWidth: .infinity)
+        }
+    }
+}
+
 struct CategoryChip: View {
     let title: String
     let isSelected: Bool
@@ -72,13 +113,11 @@ struct CategoryChip: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(AppTheme.caption(13))
-                .foregroundColor(isSelected ? .white : AppTheme.inkBrown)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(isSelected ? AppTheme.goldAccent : AppTheme.parchmentDark)
-                .clipShape(Capsule())
-                .overlay(Capsule().stroke(AppTheme.goldAccent.opacity(0.4), lineWidth: 1))
+                .font(AppTheme.caption(13, weight: .semibold))
+                .foregroundColor(isSelected ? .white : AppTheme.sageDeep)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 9)
+                .background(isSelected ? AppTheme.sageDeep : .white.opacity(0.78), in: Capsule())
         }
     }
 }
@@ -87,54 +126,47 @@ struct PoseCard: View {
     let pose: Pose
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            // Pose image placeholder
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(AppTheme.parchmentDark)
-                    .frame(height: 120)
-                if let uiImage = UIImage(named: pose.imageFile) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 120)
-                        .clipped()
-                        .cornerRadius(8)
-                } else {
-                    VStack(spacing: 4) {
-                        Text("🧘")
-                            .font(.system(size: 36))
-                        Text(pose.nameJa)
-                            .font(AppTheme.caption(11))
-                            .foregroundColor(AppTheme.inkLight)
-                            .multilineTextAlignment(.center)
-                    }
+        VStack(alignment: .leading, spacing: 10) {
+            Image(pose.imageFile)
+                .resizable()
+                .scaledToFill()
+                .frame(height: 130)
+                .frame(maxWidth: .infinity)
+                .clipped()
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 5) {
+                Text(pose.nameJa)
+                    .font(AppTheme.body(17, weight: .semibold))
+                    .foregroundColor(AppTheme.ink)
+                    .lineLimit(1)
+                Text(pose.sanskrit)
+                    .font(AppTheme.caption(12))
+                    .foregroundColor(AppTheme.muted)
+                    .lineLimit(1)
+                HStack {
+                    Pill(text: "\(pose.duration)分", color: AppTheme.clay)
+                    Spacer()
+                    DifficultyDots(level: pose.difficulty)
                 }
-            }
-
-            Text(pose.nameJa)
-                .font(AppTheme.body(14))
-                .foregroundColor(AppTheme.inkBrown)
-                .lineLimit(1)
-
-            Text(pose.sanskrit)
-                .font(AppTheme.caption(11))
-                .foregroundColor(AppTheme.inkLight)
-                .lineLimit(1)
-
-            HStack(spacing: 2) {
-                ForEach(1...5, id: \.self) { i in
-                    Circle()
-                        .fill(i <= pose.difficulty ? AppTheme.goldAccent : AppTheme.parchmentDark)
-                        .frame(width: 6, height: 6)
-                }
-                Spacer()
-                Text("\(pose.duration)分")
-                    .font(AppTheme.caption(11))
-                    .foregroundColor(AppTheme.inkLight)
             }
         }
         .padding(10)
-        .background(AppTheme.cardBackground())
+        .background(.white.opacity(0.82), in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .shadow(color: AppTheme.sageDeep.opacity(0.10), radius: 12, x: 0, y: 8)
+    }
+}
+
+struct DifficultyDots: View {
+    let level: Int
+
+    var body: some View {
+        HStack(spacing: 3) {
+            ForEach(1...3, id: \.self) { index in
+                Circle()
+                    .fill(index <= level ? AppTheme.gold : AppTheme.canvasDeep)
+                    .frame(width: 7, height: 7)
+            }
+        }
     }
 }

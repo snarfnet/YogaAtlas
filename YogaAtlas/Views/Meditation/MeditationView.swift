@@ -2,32 +2,37 @@ import SwiftUI
 
 struct MeditationView: View {
     @EnvironmentObject var store: DataStore
-    @State private var selectedMeditation: Meditation? = nil
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
-                AppTheme.parchment.ignoresSafeArea()
+                YogaScreenBackground()
                 ScrollView {
-                    VStack(spacing: 14) {
-                        Text("心を静め、内側に繋がりましょう")
-                            .font(AppTheme.caption(14))
-                            .foregroundColor(AppTheme.inkLight)
-                            .padding(.top, 8)
+                    VStack(spacing: 22) {
+                        YogaHeroCard(imageName: "MeditationCorner", height: 280) {
+                            VStack(alignment: .leading, spacing: 9) {
+                                Pill(text: "Meditation", color: .white)
+                                Text("静けさを、練習にする。")
+                                    .font(AppTheme.title(31))
+                                    .foregroundColor(.white)
+                                Text("数分でも呼吸へ戻ると、体の感覚が変わります。")
+                                    .font(AppTheme.body(15))
+                                    .foregroundColor(.white.opacity(0.92))
+                            }
+                        }
 
                         ForEach(store.meditations) { meditation in
                             NavigationLink(destination: MeditationTimerView(meditation: meditation)) {
                                 MeditationCard(meditation: meditation)
                             }
                             .buttonStyle(.plain)
-                            .padding(.horizontal)
                         }
-                        Spacer(minLength: 32)
                     }
+                    .padding(18)
                 }
             }
-            .navigationTitle("🧘 瞑想")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("瞑想")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -35,54 +40,32 @@ struct MeditationView: View {
 struct MeditationCard: View {
     let meditation: Meditation
 
-    private var chakraColor: Color {
-        guard let id = meditation.chakra,
-              let c = Chakra.all.first(where: { $0.id == id }) else {
-            return AppTheme.lavender
-        }
-        return Color(hex: c.color)
-    }
-
     var body: some View {
-        HStack(spacing: 14) {
-            ZStack {
-                Circle()
-                    .fill(chakraColor.opacity(0.15))
+        YogaCard {
+            HStack(spacing: 14) {
+                Image(systemName: meditation.icon)
+                    .font(.system(size: 25))
+                    .foregroundColor(.white)
                     .frame(width: 52, height: 52)
-                Text(meditation.icon)
-                    .font(.system(size: 26))
-            }
-            VStack(alignment: .leading, spacing: 3) {
-                Text(meditation.nameJa)
-                    .font(AppTheme.body(16))
-                    .foregroundColor(AppTheme.inkBrown)
-                Text(meditation.description)
-                    .font(AppTheme.caption(12))
-                    .foregroundColor(AppTheme.inkLight)
-                    .lineLimit(2)
-                HStack(spacing: 6) {
-                    ForEach(meditation.tags.prefix(3), id: \.self) { tag in
-                        Text(tag)
-                            .font(.system(size: 10))
-                            .foregroundColor(chakraColor)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(chakraColor.opacity(0.1))
-                            .cornerRadius(4)
+                    .background(AppTheme.lavender, in: Circle())
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(meditation.nameJa)
+                        .font(AppTheme.title(21))
+                        .foregroundColor(AppTheme.ink)
+                    Text(meditation.description)
+                        .font(AppTheme.body(14))
+                        .foregroundColor(AppTheme.muted)
+                        .lineLimit(2)
+                    HStack {
+                        ForEach(meditation.tags, id: \.self) { tag in
+                            Pill(text: tag, color: AppTheme.lavender)
+                        }
                     }
                 }
-            }
-            Spacer()
-            VStack(alignment: .trailing, spacing: 2) {
-                Text("\(meditation.defaultDuration)分")
-                    .font(AppTheme.caption(13))
-                    .foregroundColor(AppTheme.goldAccent)
-                Image(systemName: "play.circle.fill")
-                    .font(.title2)
-                    .foregroundColor(AppTheme.goldAccent)
+                Spacer()
+                Image(systemName: "play.fill")
+                    .foregroundColor(AppTheme.sageDeep)
             }
         }
-        .padding(12)
-        .background(AppTheme.cardBackground())
     }
 }
