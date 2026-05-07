@@ -19,9 +19,7 @@ SCREENSHOT_GROUPS = [
     ('APP_IPHONE_58', ['iphone_58_1_home.png', 'iphone_58_2_prescription.png', 'iphone_58_3_meditation.png']),
     ('APP_IPHONE_55', ['iphone_55_1_home.png', 'iphone_55_2_prescription.png', 'iphone_55_3_meditation.png']),
     ('APP_IPAD_PRO_3GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
-    ('APP_IPAD_PRO_2GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
     ('APP_IPAD_PRO_3GEN_11', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
-    ('APP_IPAD_PRO_2GEN_11', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
 ]
 
 WHATS_NEW = {
@@ -182,7 +180,7 @@ def wait_for_build(app_id):
             print(f'Build ready: {build_id}')
             return build_id
         print(f'  Waiting... ({i + 1}/80)')
-        time.sleep(30)
+        time.sleep(40)
     print('Build was not processed in time.')
     sys.exit(1)
 
@@ -325,7 +323,7 @@ def submit_for_review(app_id, version_id):
         print(f'ReviewSubmission created: {submission_id}')
 
     item_added = False
-    for attempt in range(20):
+    for attempt in range(30):
         r = api('POST', '/reviewSubmissionItems', json={
             'data': {
                 'type': 'reviewSubmissionItems',
@@ -335,11 +333,11 @@ def submit_for_review(app_id, version_id):
                 }
             }
         })
-        print(f'Add item attempt {attempt + 1}/20: {r.status_code}')
+        print(f'Add item attempt {attempt + 1}/30: {r.status_code}')
         if r.status_code == 201:
             item_added = True
             break
-        time.sleep(30)
+        time.sleep(40)
     if not item_added:
         print(f'Failed to add item: {r.text[:2000]}')
         sys.exit(1)
@@ -367,7 +365,8 @@ set_export_compliance(build_id)
 update_version_localizations(version_id)
 upload_screenshots(version_id)
 print('Waiting for App Store Connect to finish screenshot processing...')
-time.sleep(300)
+time.sleep(900)
 assign_build(version_id, build_id)
 submit_for_review(app_id, version_id)
+
 
