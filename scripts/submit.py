@@ -140,6 +140,16 @@ def remove_version_from_review(app_id, version_id):
         state = submission.get('attributes', {}).get('state')
         if state not in ('WAITING_FOR_REVIEW', 'IN_REVIEW', 'PENDING_DEVELOPER_RELEASE', 'PENDING_APPLE_RELEASE'):
             continue
+        r = api('PATCH', f'/reviewSubmissions/{submission["id"]}', json={
+            'data': {
+                'type': 'reviewSubmissions',
+                'id': submission['id'],
+                'attributes': {'submitted': False}
+            }
+        })
+        print(f'  Cancel review submission {submission["id"]}: {r.status_code} {r.text[:500]}')
+        if r.status_code == 200:
+            removed_any = True
         items = get_submission_items(submission['id'])
         for item in items:
             relationships = item.get('relationships', {})
@@ -147,7 +157,7 @@ def remove_version_from_review(app_id, version_id):
             if related_version and related_version != version_id:
                 continue
             r = api('DELETE', f'/reviewSubmissionItems/{item["id"]}')
-            print(f'  Remove review item {item["id"]}: {r.status_code}')
+            print(f'  Remove review item {item["id"]}: {r.status_code} {r.text[:500]}')
             if r.status_code in (200, 204):
                 removed_any = True
 
