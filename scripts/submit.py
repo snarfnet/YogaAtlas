@@ -14,14 +14,14 @@ BUILD_NUMBER = sys.argv[1]
 SCREENSHOT_DIR = 'screenshots/appstore'
 
 SCREENSHOT_GROUPS = [
-    ('APP_IPHONE_69', ['iphone_69_1_home.png', 'iphone_69_2_prescription.png', 'iphone_69_3_meditation.png']),
     ('APP_IPHONE_67', ['iphone_67_1_home.png', 'iphone_67_2_prescription.png', 'iphone_67_3_meditation.png']),
     ('APP_IPHONE_65', ['iphone_65_1_home.png', 'iphone_65_2_prescription.png', 'iphone_65_3_meditation.png']),
-    ('APP_IPHONE_61', ['iphone_61_1_home.png', 'iphone_61_2_prescription.png', 'iphone_61_3_meditation.png']),
     ('APP_IPHONE_58', ['iphone_58_1_home.png', 'iphone_58_2_prescription.png', 'iphone_58_3_meditation.png']),
     ('APP_IPHONE_55', ['iphone_55_1_home.png', 'iphone_55_2_prescription.png', 'iphone_55_3_meditation.png']),
     ('APP_IPAD_PRO_3GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
     ('APP_IPAD_PRO_2GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
+    ('APP_IPAD_PRO_3GEN_11', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
+    ('APP_IPAD_PRO_2GEN_11', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
 ]
 
 WHATS_NEW = {
@@ -122,6 +122,45 @@ def find_or_create_version(app_id):
 
 def version_is_already_submitted(state):
     return state in ('WAITING_FOR_REVIEW', 'IN_REVIEW', 'PENDING_DEVELOPER_RELEASE', 'PENDING_APPLE_RELEASE')
+
+
+def find_version_state(app_id, version_id):
+    versions = list_all(f'/apps/{app_id}/appStoreVersions?filter[platform]=IOS&limit=200')
+    for version in versions:
+        if version['id'] == version_id:
+            return version.get('attributes', {}).get('appStoreState')
+    return None
+
+
+def remove_version_from_review(app_id, version_id):
+    print('Removing current version from review so screenshots can be edited...')
+    submissions = list_all(f'/apps/{app_id}/reviewSubmissions?limit=200')
+    removed_any = False
+    for submission in submissions:
+        state = submission.get('attributes', {}).get('state')
+        if state not in ('WAITING_FOR_REVIEW', 'IN_REVIEW', 'PENDING_DEVELOPER_RELEASE', 'PENDING_APPLE_RELEASE'):
+            continue
+        items = get_submission_items(submission['id'])
+        for item in items:
+            relationships = item.get('relationships', {})
+            related_version = relationships.get('appStoreVersion', {}).get('data', {}).get('id')
+            if related_version and related_version != version_id:
+                continue
+            r = api('DELETE', f'/reviewSubmissionItems/{item["id"]}')
+            print(f'  Remove review item {item["id"]}: {r.status_code}')
+            if r.status_code in (200, 204):
+                removed_any = True
+
+    if not removed_any:
+        print('  No removable review item found. Continuing in case App Store Connect already released the lock.')
+        return
+
+    for attempt in range(30):
+        state = find_version_state(app_id, version_id)
+        print(f'  Version state after removal attempt {attempt + 1}/30: {state}')
+        if state in ('DEVELOPER_REJECTED', 'PREPARE_FOR_SUBMISSION', 'REJECTED', 'INVALID_BINARY'):
+            return
+        time.sleep(20)
 
 
 def wait_for_build(app_id):
@@ -309,7 +348,9 @@ app_id = find_app_id()
 version_id, version_state = find_or_create_version(app_id)
 already_submitted = version_is_already_submitted(version_state)
 if already_submitted:
-    print(f'Version {APP_VERSION} is already submitted ({version_state}). Updating screenshots if App Store Connect allows it.')
+    print(f'Version {APP_VERSION} is already submitted ({version_state}).')
+    remove_version_from_review(app_id, version_id)
+    already_submitted = False
 
 build_id = wait_for_build(app_id)
 set_export_compliance(build_id)
@@ -318,8 +359,5 @@ upload_screenshots(version_id)
 print('Waiting for App Store Connect to finish screenshot processing...')
 time.sleep(300)
 assign_build(version_id, build_id)
-if already_submitted:
-    print(f'Version {APP_VERSION} was already submitted. Screenshot refresh finished; no new review submission needed.')
-else:
-    submit_for_review(app_id, version_id)
+submit_for_review(app_id, version_id)
 
