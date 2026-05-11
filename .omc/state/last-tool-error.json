@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd \\\"C:/Users/Windows/YogaAtlas/ios/YogaAtlas\\\" && GIT_EDITOR=true git rebase --continue\",\"description\":\"Continue rebase with default editor\"}",
-  "error": "Exit code 1\nYou must edit all merge conflicts and then\nmark them as resolved using git add",
-  "timestamp": "2026-05-11T14:40:58.077Z",
-  "retry_count": 7
+  "tool_input_preview": "{\"command\":\"cd \\\"C:/Users/Windows/YogaAtlas/ios/YogaAtlas\\\" && git add -A && git -c core.editor=true rebase --continue\",\"description\":\"Continue rebase after resolving all conflicts\"}",
+  "error": "Exit code 1\n[detached HEAD 26fd529] Add English localization (ja/en bilingual support)\n 16 files changed, 341 insertions(+), 293 deletions(-)\n create mode 100644 .omc/sessions/6b2d0311-4b1e-4a3e-9668-8952fa9d02ab.json\n create mode 100644 .omc/state/last-tool-error.json\n create mode 100644 YogaAtlas/en.lproj/Localizable.strings\n create mode 100644 YogaAtlas/ja.lproj/Localizable.strings\nRebasing (2/2)\rAuto-merging scripts/submit.py\nCONFLICT (add/add): Merge conflict in scripts/submit.py\nerror: cou...",
+  "timestamp": "2026-05-11T14:41:09.023Z",
+  "retry_count": 8
 }

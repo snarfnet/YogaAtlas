@@ -1,4 +1,4 @@
-﻿import hashlib
+import hashlib
 import os
 import sys
 import time
@@ -14,18 +14,15 @@ BUILD_NUMBER = sys.argv[1]
 SCREENSHOT_DIR = 'screenshots/appstore'
 
 SCREENSHOT_GROUPS = [
-    ('APP_IPHONE_67', ['iphone_67_1_home.png', 'iphone_67_2_prescription.png', 'iphone_67_3_meditation.png']),
-    ('APP_IPHONE_65', ['iphone_65_1_home.png', 'iphone_65_2_prescription.png', 'iphone_65_3_meditation.png']),
-    ('APP_IPHONE_58', ['iphone_58_1_home.png', 'iphone_58_2_prescription.png', 'iphone_58_3_meditation.png']),
-    ('APP_IPHONE_55', ['iphone_55_1_home.png', 'iphone_55_2_prescription.png', 'iphone_55_3_meditation.png']),
-    ('APP_IPAD_PRO_3GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
-    ('APP_IPAD_PRO_3GEN_11', ['ipad_11_1_home.png', 'ipad_11_2_prescription.png', 'ipad_11_3_meditation.png']),
+    ('APP_IPHONE_67', ['iphone_1_home.png', 'iphone_2_prescription.png', 'iphone_3_meditation.png']),
+    ('APP_IPAD_PRO_3GEN_129', ['ipad_1_home.png', 'ipad_2_prescription.png', 'ipad_3_meditation.png']),
 ]
 
 WHATS_NEW = {
     'ja': 'ヨガの魅力が伝わるようにデザインを大幅刷新しました。写真付きの画面、読みやすいポーズ解説、悩み別ケア、瞑想、チャクラ画面を改善しています。',
     'en-US': 'Refreshed the yoga experience with richer visuals, clearer pose guidance, symptom care, meditation, chakra content, and updated screenshots.',
 }
+
 p8 = open('/tmp/asc_key.p8').read()
 
 
@@ -118,59 +115,6 @@ def find_or_create_version(app_id):
     return version_id, 'PREPARE_FOR_SUBMISSION'
 
 
-def version_is_already_submitted(state):
-    return state in ('WAITING_FOR_REVIEW', 'IN_REVIEW', 'PENDING_DEVELOPER_RELEASE', 'PENDING_APPLE_RELEASE')
-
-
-def find_version_state(app_id, version_id):
-    versions = list_all(f'/apps/{app_id}/appStoreVersions?filter[platform]=IOS&limit=200')
-    for version in versions:
-        if version['id'] == version_id:
-            return version.get('attributes', {}).get('appStoreState')
-    return None
-
-
-def remove_version_from_review(app_id, version_id):
-    print('Removing current version from review so screenshots can be edited...')
-    submissions = list_all(f'/apps/{app_id}/reviewSubmissions?limit=200')
-    removed_any = False
-    for submission in submissions:
-        state = submission.get('attributes', {}).get('state')
-        if state not in ('WAITING_FOR_REVIEW', 'IN_REVIEW', 'PENDING_DEVELOPER_RELEASE', 'PENDING_APPLE_RELEASE'):
-            continue
-        r = api('PATCH', f'/reviewSubmissions/{submission["id"]}', json={
-            'data': {
-                'type': 'reviewSubmissions',
-                'id': submission['id'],
-                'attributes': {'submitted': False}
-            }
-        })
-        print(f'  Cancel review submission {submission["id"]}: {r.status_code} {r.text[:500]}')
-        if r.status_code == 200:
-            removed_any = True
-        items = get_submission_items(submission['id'])
-        for item in items:
-            relationships = item.get('relationships', {})
-            related_version = relationships.get('appStoreVersion', {}).get('data', {}).get('id')
-            if related_version and related_version != version_id:
-                continue
-            r = api('DELETE', f'/reviewSubmissionItems/{item["id"]}')
-            print(f'  Remove review item {item["id"]}: {r.status_code} {r.text[:500]}')
-            if r.status_code in (200, 204):
-                removed_any = True
-
-    if not removed_any:
-        print('  No removable review item found. Continuing in case App Store Connect already released the lock.')
-        return
-
-    for attempt in range(30):
-        state = find_version_state(app_id, version_id)
-        print(f'  Version state after removal attempt {attempt + 1}/30: {state}')
-        if state in ('DEVELOPER_REJECTED', 'PREPARE_FOR_SUBMISSION', 'REJECTED', 'INVALID_BINARY'):
-            return
-        time.sleep(20)
-
-
 def wait_for_build(app_id):
     print(f'Waiting for build {BUILD_NUMBER} to be processed...')
     for i in range(80):
@@ -180,7 +124,7 @@ def wait_for_build(app_id):
             print(f'Build ready: {build_id}')
             return build_id
         print(f'  Waiting... ({i + 1}/80)')
-        time.sleep(40)
+        time.sleep(30)
     print('Build was not processed in time.')
     sys.exit(1)
 
@@ -273,8 +217,8 @@ def upload_screenshots(version_id):
                     }
                 })
                 if r.status_code not in (200, 201):
-                    print(f'    Create set {display_type}: SKIPPED {r.status_code} {r.text[:500]}')
-                    continue
+                    print(f'    Create set {display_type}: FAILED {r.status_code} {r.text[:500]}')
+                    sys.exit(1)
                 set_id = body['data']['id']
             print(f'    Display: {display_type} set={set_id}')
             delete_existing_screenshots(set_id)
@@ -323,7 +267,7 @@ def submit_for_review(app_id, version_id):
         print(f'ReviewSubmission created: {submission_id}')
 
     item_added = False
-    for attempt in range(30):
+    for attempt in range(20):
         r = api('POST', '/reviewSubmissionItems', json={
             'data': {
                 'type': 'reviewSubmissionItems',
@@ -333,11 +277,11 @@ def submit_for_review(app_id, version_id):
                 }
             }
         })
-        print(f'Add item attempt {attempt + 1}/30: {r.status_code}')
+        print(f'Add item attempt {attempt + 1}/20: {r.status_code}')
         if r.status_code == 201:
             item_added = True
             break
-        time.sleep(40)
+        time.sleep(30)
     if not item_added:
         print(f'Failed to add item: {r.text[:2000]}')
         sys.exit(1)
@@ -354,19 +298,15 @@ def submit_for_review(app_id, version_id):
 
 app_id = find_app_id()
 version_id, version_state = find_or_create_version(app_id)
-already_submitted = version_is_already_submitted(version_state)
-if already_submitted:
-    print(f'Version {APP_VERSION} is already submitted ({version_state}).')
-    remove_version_from_review(app_id, version_id)
-    already_submitted = False
+if version_state in ('WAITING_FOR_REVIEW', 'IN_REVIEW'):
+    print(f'Version {APP_VERSION} already in review ({version_state}). Nothing to do.')
+    sys.exit(0)
 
 build_id = wait_for_build(app_id)
 set_export_compliance(build_id)
 update_version_localizations(version_id)
 upload_screenshots(version_id)
 print('Waiting for App Store Connect to finish screenshot processing...')
-time.sleep(900)
+time.sleep(300)
 assign_build(version_id, build_id)
 submit_for_review(app_id, version_id)
-
-
