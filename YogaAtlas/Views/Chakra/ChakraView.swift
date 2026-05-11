@@ -9,18 +9,18 @@ struct ChakraView: View {
                     VStack(spacing: 22) {
                         YogaHeroCard(imageName: "ChakraAura", height: 310) {
                             VStack(alignment: .leading, spacing: 9) {
-                                Pill(text: "Energy Map", color: .white)
-                                Text("チャクラで体を読む")
+                                Pill(text: String(localized: "chakra.hero.tag"), color: .white)
+                                Text(String(localized: "chakra.hero.title"))
                                     .font(AppTheme.title(31))
                                     .foregroundColor(.white)
-                                Text("ポーズの目的を、心と体の感覚でつなぎます。")
+                                Text(String(localized: "chakra.hero.subtitle"))
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }
                         }
 
                         VStack(spacing: 13) {
-                            SectionTitle(title: "7つのエネルギー", subtitle: "気になるテーマから練習を選べます")
+                            SectionTitle(title: String(localized: "chakra.section.title"), subtitle: String(localized: "chakra.section.subtitle"))
                             ForEach(Chakra.all) { chakra in
                                 ChakraRow(chakra: chakra)
                             }
@@ -29,7 +29,7 @@ struct ChakraView: View {
                     .padding(18)
                 }
             }
-            .navigationTitle("チャクラ")
+            .navigationTitle(String(localized: "chakra.nav.title"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -54,18 +54,18 @@ struct ChakraRow: View {
                 }
 
                 VStack(alignment: .leading, spacing: 7) {
-                    Text(chakra.nameJa)
+                    Text(chakra.localName)
                         .font(AppTheme.title(20))
                         .foregroundColor(AppTheme.ink)
-                    Text("\(chakra.nameEn) / \(chakra.location) / \(chakra.element)")
+                    Text("\(chakra.nameEn) / \(chakra.localLocation) / \(chakra.localElement)")
                         .font(AppTheme.caption(12))
                         .foregroundColor(AppTheme.muted)
-                    Text(chakra.affirmation)
+                    Text(chakra.localAffirmation)
                         .font(AppTheme.body(14))
                         .foregroundColor(AppTheme.ink)
                         .lineSpacing(3)
                     HStack {
-                        ForEach(chakra.keywords, id: \.self) { keyword in
+                        ForEach(chakra.localKeywords, id: \.self) { keyword in
                             Pill(text: keyword, color: Color(hex: chakra.color))
                         }
                     }

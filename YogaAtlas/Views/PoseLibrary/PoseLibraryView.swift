@@ -6,7 +6,7 @@ struct PoseLibraryView: View {
     @State private var selectedCategory: String? = nil
 
     private var categories: [String] {
-        Array(Set(store.poses.map(\.category))).sorted()
+        Array(Set(store.poses.map(\.localCategory))).sorted()
     }
 
     private var filtered: [Pose] {
@@ -15,7 +15,7 @@ struct PoseLibraryView: View {
                 || pose.nameJa.localizedCaseInsensitiveContains(searchText)
                 || pose.nameEn.localizedCaseInsensitiveContains(searchText)
                 || pose.sanskrit.localizedCaseInsensitiveContains(searchText)
-            let matchesCategory = selectedCategory == nil || pose.category == selectedCategory
+            let matchesCategory = selectedCategory == nil || pose.localCategory == selectedCategory
             return matchesText && matchesCategory
         }
     }
@@ -28,11 +28,11 @@ struct PoseLibraryView: View {
                     VStack(spacing: 22) {
                         YogaHeroCard(imageName: "YogaHero", height: 260) {
                             VStack(alignment: .leading, spacing: 10) {
-                                Pill(text: "Yoga Atlas", color: .white)
-                                Text("呼吸から、体を読み解く。")
+                                Pill(text: String(localized: "pose.hero.tag"), color: .white)
+                                Text(String(localized: "pose.hero.title"))
                                     .font(AppTheme.title(30))
                                     .foregroundColor(.white)
-                                Text("ポーズ、瞑想、チャクラ、悩み別ケアをひとつの流れで学べます。")
+                                Text(String(localized: "pose.hero.subtitle"))
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                                     .lineSpacing(3)
@@ -40,16 +40,16 @@ struct PoseLibraryView: View {
                         }
 
                         HStack(spacing: 10) {
-                            SummaryBadge(value: "\(store.poses.count)", label: "ポーズ")
-                            SummaryBadge(value: "\(store.symptoms.count)", label: "悩み別")
-                            SummaryBadge(value: "\(store.meditations.count)", label: "瞑想")
+                            SummaryBadge(value: "\(store.poses.count)", label: String(localized: "pose.badge.poses"))
+                            SummaryBadge(value: "\(store.symptoms.count)", label: String(localized: "pose.badge.symptoms"))
+                            SummaryBadge(value: "\(store.meditations.count)", label: String(localized: "pose.badge.meditations"))
                         }
 
                         VStack(spacing: 14) {
-                            SectionTitle(title: "ポーズ図鑑", subtitle: "目的に合わせて、無理なく選べる基本ポーズ")
+                            SectionTitle(title: String(localized: "pose.section.title"), subtitle: String(localized: "pose.section.subtitle"))
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 10) {
-                                    CategoryChip(title: "すべて", isSelected: selectedCategory == nil) {
+                                    CategoryChip(title: String(localized: "pose.filter.all"), isSelected: selectedCategory == nil) {
                                         selectedCategory = nil
                                     }
                                     ForEach(categories, id: \.self) { category in
@@ -74,9 +74,9 @@ struct PoseLibraryView: View {
                     .padding(18)
                 }
             }
-            .navigationTitle("ヨガアトラス")
+            .navigationTitle(String(localized: "pose.nav.title"))
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $searchText, prompt: "ポーズを検索")
+            .searchable(text: $searchText, prompt: String(localized: "pose.search.prompt"))
             .navigationDestination(for: String.self) { id in
                 if let pose = store.pose(for: id) {
                     PoseDetailView(pose: pose)
@@ -136,7 +136,7 @@ struct PoseCard: View {
                 .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
 
             VStack(alignment: .leading, spacing: 5) {
-                Text(pose.nameJa)
+                Text(pose.localName)
                     .font(AppTheme.body(17, weight: .semibold))
                     .foregroundColor(AppTheme.ink)
                     .lineLimit(1)
@@ -145,7 +145,7 @@ struct PoseCard: View {
                     .foregroundColor(AppTheme.muted)
                     .lineLimit(1)
                 HStack {
-                    Pill(text: "\(pose.duration)分", color: AppTheme.clay)
+                    Pill(text: String(format: String(localized: "pose.duration.min"), pose.duration), color: AppTheme.clay)
                     Spacer()
                     DifficultyDots(level: pose.difficulty)
                 }

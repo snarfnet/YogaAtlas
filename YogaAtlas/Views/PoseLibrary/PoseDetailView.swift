@@ -10,8 +10,8 @@ struct PoseDetailView: View {
                 VStack(spacing: 20) {
                     YogaHeroCard(imageName: pose.imageFile, height: 320) {
                         VStack(alignment: .leading, spacing: 8) {
-                            Pill(text: pose.category, color: .white)
-                            Text(pose.nameJa)
+                            Pill(text: pose.localCategory, color: .white)
+                            Text(pose.localName)
                                 .font(AppTheme.title(32))
                                 .foregroundColor(.white)
                             Text(pose.sanskrit)
@@ -21,14 +21,14 @@ struct PoseDetailView: View {
                     }
 
                     HStack(spacing: 10) {
-                        InfoTile(icon: "clock.fill", title: "\(pose.duration)分", subtitle: "目安")
-                        InfoTile(icon: "flame.fill", title: "Lv.\(pose.difficulty)", subtitle: "強度")
-                        InfoTile(icon: "sparkles", title: chakraName(for: pose.chakra), subtitle: "チャクラ")
+                        InfoTile(icon: "clock.fill", title: String(format: String(localized: "pose.duration.min"), pose.duration), subtitle: String(localized: "detail.duration.label"))
+                        InfoTile(icon: "flame.fill", title: "Lv.\(pose.difficulty)", subtitle: String(localized: "detail.intensity.label"))
+                        InfoTile(icon: "sparkles", title: chakraName(for: pose.chakra), subtitle: String(localized: "detail.chakra.label"))
                     }
 
-                    DetailSection(title: "効果", items: pose.benefits, icon: "leaf.fill")
-                    DetailSection(title: "やり方", items: pose.instructions, icon: "list.number")
-                    DetailSection(title: "注意", items: pose.cautions, icon: "exclamationmark.triangle.fill")
+                    DetailSection(title: String(localized: "detail.benefits"), items: pose.localBenefits, icon: "leaf.fill")
+                    DetailSection(title: String(localized: "detail.instructions"), items: pose.localInstructions, icon: "list.number")
+                    DetailSection(title: String(localized: "detail.cautions"), items: pose.localCautions, icon: "exclamationmark.triangle.fill")
                 }
                 .padding(18)
             }
@@ -37,7 +37,7 @@ struct PoseDetailView: View {
     }
 
     private func chakraName(for id: String) -> String {
-        Chakra.all.first { $0.id == id }?.nameEn ?? "Body"
+        Chakra.all.first { $0.id == id }?.localName ?? "Body"
     }
 }
 

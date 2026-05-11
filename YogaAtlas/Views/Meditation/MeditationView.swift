@@ -11,11 +11,11 @@ struct MeditationView: View {
                     VStack(spacing: 22) {
                         YogaHeroCard(imageName: "MeditationCorner", height: 280) {
                             VStack(alignment: .leading, spacing: 9) {
-                                Pill(text: "Meditation", color: .white)
-                                Text("静けさを、練習にする。")
+                                Pill(text: String(localized: "med.hero.tag"), color: .white)
+                                Text(String(localized: "med.hero.title"))
                                     .font(AppTheme.title(31))
                                     .foregroundColor(.white)
-                                Text("数分でも呼吸へ戻ると、体の感覚が変わります。")
+                                Text(String(localized: "med.hero.subtitle"))
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }
@@ -31,7 +31,7 @@ struct MeditationView: View {
                     .padding(18)
                 }
             }
-            .navigationTitle("瞑想")
+            .navigationTitle(String(localized: "med.nav.title"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -49,15 +49,15 @@ struct MeditationCard: View {
                     .frame(width: 52, height: 52)
                     .background(AppTheme.lavender, in: Circle())
                 VStack(alignment: .leading, spacing: 5) {
-                    Text(meditation.nameJa)
+                    Text(meditation.localName)
                         .font(AppTheme.title(21))
                         .foregroundColor(AppTheme.ink)
-                    Text(meditation.description)
+                    Text(meditation.localDescription)
                         .font(AppTheme.body(14))
                         .foregroundColor(AppTheme.muted)
                         .lineLimit(2)
                     HStack {
-                        ForEach(meditation.tags, id: \.self) { tag in
+                        ForEach(meditation.localTags, id: \.self) { tag in
                             Pill(text: tag, color: AppTheme.lavender)
                         }
                     }

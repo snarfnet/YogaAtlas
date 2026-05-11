@@ -7,27 +7,27 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             PoseLibraryView()
-                .tabItem { Label("ポーズ", systemImage: "figure.yoga") }
+                .tabItem { Label(String(localized: "tab.poses"), systemImage: "figure.walk") }
                 .tag(0)
 
             PrescriptionView()
-                .tabItem { Label("悩み別", systemImage: "heart.text.square.fill") }
+                .tabItem { Label(String(localized: "tab.symptoms"), systemImage: "heart.text.square.fill") }
                 .tag(1)
 
             DailyYogaView()
-                .tabItem { Label("今日", systemImage: "sun.max.fill") }
+                .tabItem { Label(String(localized: "tab.daily"), systemImage: "sun.max.fill") }
                 .tag(2)
 
             MeditationView()
-                .tabItem { Label("瞑想", systemImage: "sparkles") }
+                .tabItem { Label(String(localized: "tab.meditation"), systemImage: "sparkles") }
                 .tag(3)
 
             ChakraView()
-                .tabItem { Label("チャクラ", systemImage: "circle.hexagongrid.fill") }
+                .tabItem { Label(String(localized: "tab.chakra"), systemImage: "circle.hexagongrid.fill") }
                 .tag(4)
 
             OfficeYogaView()
-                .tabItem { Label("仕事中", systemImage: "desktopcomputer") }
+                .tabItem { Label(String(localized: "tab.office"), systemImage: "desktopcomputer") }
                 .tag(5)
         }
         .tint(AppTheme.sageDeep)

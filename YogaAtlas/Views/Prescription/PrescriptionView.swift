@@ -11,18 +11,18 @@ struct PrescriptionView: View {
                     VStack(spacing: 22) {
                         YogaHeroCard(imageName: "RestorativeProps", height: 265) {
                             VStack(alignment: .leading, spacing: 9) {
-                                Pill(text: "Care Guide", color: .white)
-                                Text("悩みから選ぶヨガ")
+                                Pill(text: String(localized: "rx.hero.tag"), color: .white)
+                                Text(String(localized: "rx.hero.title"))
                                     .font(AppTheme.title(31))
                                     .foregroundColor(.white)
-                                Text("疲れ、肩こり、眠り。今日の状態に合うやさしい処方です。")
+                                Text(String(localized: "rx.hero.subtitle"))
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }
                         }
 
                         VStack(spacing: 14) {
-                            SectionTitle(title: "体調別ガイド", subtitle: "無理に頑張らず、必要なケアから始めましょう")
+                            SectionTitle(title: String(localized: "rx.section.title"), subtitle: String(localized: "rx.section.subtitle"))
                             ForEach(store.symptoms) { symptom in
                                 SymptomCard(symptom: symptom)
                             }
@@ -31,7 +31,7 @@ struct PrescriptionView: View {
                     .padding(18)
                 }
             }
-            .navigationTitle("悩み別")
+            .navigationTitle(String(localized: "rx.nav.title"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -51,10 +51,10 @@ struct SymptomCard: View {
                         .frame(width: 48, height: 48)
                         .background(AppTheme.clay, in: Circle())
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(symptom.nameJa)
+                        Text(symptom.localName)
                             .font(AppTheme.title(21))
                             .foregroundColor(AppTheme.ink)
-                        Text(symptom.description)
+                        Text(symptom.localDescription)
                             .font(AppTheme.body(14))
                             .foregroundColor(AppTheme.muted)
                             .lineSpacing(3)
@@ -71,15 +71,15 @@ struct SymptomCard: View {
                                     .frame(width: 54, height: 54)
                                     .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                                 VStack(alignment: .leading, spacing: 3) {
-                                    Text(pose.nameJa)
+                                    Text(pose.localName)
                                         .font(AppTheme.body(15, weight: .semibold))
                                         .foregroundColor(AppTheme.ink)
-                                    Text(item.reason)
+                                    Text(item.localReason)
                                         .font(AppTheme.caption(12))
                                         .foregroundColor(AppTheme.muted)
                                 }
                                 Spacer()
-                                Pill(text: "\(item.duration)分", color: AppTheme.sageDeep)
+                                Pill(text: String(format: String(localized: "pose.duration.min"), item.duration), color: AppTheme.sageDeep)
                             }
                         }
                     }

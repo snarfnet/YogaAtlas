@@ -15,11 +15,11 @@ struct DailyYogaView: View {
                     VStack(spacing: 22) {
                         YogaHeroCard(imageName: "PoseTree", height: 270) {
                             VStack(alignment: .leading, spacing: 9) {
-                                Pill(text: "Today Practice", color: .white)
-                                Text("今日の10分ヨガ")
+                                Pill(text: String(localized: "daily.hero.tag"), color: .white)
+                                Text(String(localized: "daily.hero.title"))
                                     .font(AppTheme.title(32))
                                     .foregroundColor(.white)
-                                Text("朝の呼吸、背骨、バランス、休息をやさしい流れで。")
+                                Text(String(localized: "daily.hero.subtitle"))
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }
@@ -31,10 +31,10 @@ struct DailyYogaView: View {
                                     .font(.system(size: 32))
                                     .foregroundColor(AppTheme.gold)
                                 VStack(alignment: .leading, spacing: 5) {
-                                    Text("今日のテーマ")
+                                    Text(String(localized: "daily.theme.title"))
                                         .font(AppTheme.body(18, weight: .semibold))
                                         .foregroundColor(AppTheme.ink)
-                                    Text("息を急がず、背骨を気持ちよく目覚めさせる。")
+                                    Text(String(localized: "daily.theme.body"))
                                         .font(AppTheme.body(14))
                                         .foregroundColor(AppTheme.muted)
                                 }
@@ -43,7 +43,7 @@ struct DailyYogaView: View {
                         }
 
                         VStack(spacing: 14) {
-                            SectionTitle(title: "シークエンス", subtitle: "順番に行うと、自然に体が整います")
+                            SectionTitle(title: String(localized: "daily.section.title"), subtitle: String(localized: "daily.section.subtitle"))
                             ForEach(Array(dailyPoses.enumerated()), id: \.element.id) { index, pose in
                                 NavigationLink(value: pose.id) {
                                     DailyPoseRow(pose: pose, number: index + 1)
@@ -55,7 +55,7 @@ struct DailyYogaView: View {
                     .padding(18)
                 }
             }
-            .navigationTitle("今日のヨガ")
+            .navigationTitle(String(localized: "daily.nav.title"))
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: String.self) { id in
                 if let pose = store.pose(for: id) {
@@ -86,10 +86,10 @@ struct DailyPoseRow: View {
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(pose.nameJa)
+                    Text(pose.localName)
                         .font(AppTheme.body(17, weight: .semibold))
                         .foregroundColor(AppTheme.ink)
-                    Text("\(pose.duration)分 / \(pose.category)")
+                    Text(String(format: String(localized: "pose.duration.min"), pose.duration) + " / " + pose.localCategory)
                         .font(AppTheme.caption(12))
                         .foregroundColor(AppTheme.muted)
                 }

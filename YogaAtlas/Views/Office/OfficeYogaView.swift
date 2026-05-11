@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct OfficeYogaView: View {
-    private let routines: [(title: String, time: String, icon: String, detail: String)] = [
-        ("首と肩をほどく", "2分", "person.fill", "耳と肩の距離を広げ、呼吸しながら首筋をゆるめます。"),
-        ("背骨リセット", "3分", "arrow.up.and.down.and.arrow.left.and.right", "椅子に座ったまま、丸める・伸ばす動きで背中を起こします。"),
-        ("目の疲れケア", "1分", "eye.fill", "視線を遠くへ移し、眉間とこめかみの力を抜きます。"),
-        ("午後の集中", "4分", "bolt.fill", "胸を開き、呼吸を深めてもう一度集中へ戻ります。")
+    private let routines: [(titleKey: String, timeKey: String, icon: String, detailKey: String)] = [
+        ("office.r1.title", "office.r1.time", "person.fill", "office.r1.detail"),
+        ("office.r2.title", "office.r2.time", "arrow.up.and.down.and.arrow.left.and.right", "office.r2.detail"),
+        ("office.r3.title", "office.r3.time", "eye.fill", "office.r3.detail"),
+        ("office.r4.title", "office.r4.time", "bolt.fill", "office.r4.detail")
     ]
 
     var body: some View {
@@ -16,19 +16,19 @@ struct OfficeYogaView: View {
                     VStack(spacing: 22) {
                         YogaHeroCard(imageName: "OfficeStretch", height: 285) {
                             VStack(alignment: .leading, spacing: 9) {
-                                Pill(text: "Desk Yoga", color: .white)
-                                Text("仕事中に、体を戻す。")
+                                Pill(text: String(localized: "office.hero.tag"), color: .white)
+                                Text(String(localized: "office.hero.title"))
                                     .font(AppTheme.title(31))
                                     .foregroundColor(.white)
-                                Text("椅子の上でもできる、短いリセット習慣。")
+                                Text(String(localized: "office.hero.subtitle"))
                                     .font(AppTheme.body(15))
                                     .foregroundColor(.white.opacity(0.92))
                             }
                         }
 
                         VStack(spacing: 14) {
-                            SectionTitle(title: "デスクでできるケア", subtitle: "着替えず、汗をかかず、今すぐ始められます")
-                            ForEach(routines, id: \.title) { routine in
+                            SectionTitle(title: String(localized: "office.section.title"), subtitle: String(localized: "office.section.subtitle"))
+                            ForEach(routines, id: \.titleKey) { routine in
                                 YogaCard {
                                     HStack(spacing: 14) {
                                         Image(systemName: routine.icon)
@@ -37,16 +37,16 @@ struct OfficeYogaView: View {
                                             .frame(width: 50, height: 50)
                                             .background(AppTheme.sageDeep, in: Circle())
                                         VStack(alignment: .leading, spacing: 5) {
-                                            Text(routine.title)
+                                            Text(String(localized: String.LocalizationValue(routine.titleKey)))
                                                 .font(AppTheme.title(20))
                                                 .foregroundColor(AppTheme.ink)
-                                            Text(routine.detail)
+                                            Text(String(localized: String.LocalizationValue(routine.detailKey)))
                                                 .font(AppTheme.body(14))
                                                 .foregroundColor(AppTheme.muted)
                                                 .lineSpacing(3)
                                         }
                                         Spacer()
-                                        Pill(text: routine.time, color: AppTheme.clay)
+                                        Pill(text: String(localized: String.LocalizationValue(routine.timeKey)), color: AppTheme.clay)
                                     }
                                 }
                             }
@@ -55,7 +55,7 @@ struct OfficeYogaView: View {
                     .padding(18)
                 }
             }
-            .navigationTitle("仕事中ヨガ")
+            .navigationTitle(String(localized: "office.nav.title"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }

@@ -1,0 +1,89 @@
+/* Tabs */
+"tab.poses" = "ポーズ";
+"tab.symptoms" = "悩み別";
+"tab.daily" = "今日";
+"tab.meditation" = "瞑想";
+"tab.chakra" = "チャクラ";
+"tab.office" = "仕事中";
+
+/* Pose Library */
+"pose.hero.tag" = "Yoga Atlas";
+"pose.hero.title" = "呼吸から、体を読み解く。";
+"pose.hero.subtitle" = "ポーズ、瞑想、チャクラ、悩み別ケアを一つの流れで学べます。";
+"pose.badge.poses" = "ポーズ";
+"pose.badge.symptoms" = "悩み別";
+"pose.badge.meditations" = "瞑想";
+"pose.section.title" = "ポーズ図鑑";
+"pose.section.subtitle" = "目的に合わせて、無理なく選べる基本ポーズ";
+"pose.filter.all" = "すべて";
+"pose.search.prompt" = "ポーズを検索";
+"pose.nav.title" = "ヨガアトラス";
+"pose.duration.min" = "%d分";
+
+/* Pose Detail */
+"detail.duration.label" = "目安";
+"detail.intensity.label" = "強度";
+"detail.chakra.label" = "チャクラ";
+"detail.benefits" = "効果";
+"detail.instructions" = "やり方";
+"detail.cautions" = "注意";
+
+/* Prescription */
+"rx.hero.tag" = "Care Guide";
+"rx.hero.title" = "悩みから選ぶヨガ";
+"rx.hero.subtitle" = "疲れ、肩こり、眠り。今日の状態に合うやさしい処方。";
+"rx.section.title" = "体調別ガイド";
+"rx.section.subtitle" = "無理に頑張らず、必要なケアから始めましょう";
+"rx.nav.title" = "悩み別";
+
+/* Daily Yoga */
+"daily.hero.tag" = "Today Practice";
+"daily.hero.title" = "今日の10分ヨガ";
+"daily.hero.subtitle" = "朝の呼吸、背骨、バランス、休息を短い流れで。";
+"daily.theme.title" = "今日のテーマ";
+"daily.theme.body" = "息を急がず、背骨を気持ちよく目覚めさせる";
+"daily.section.title" = "シークエンス";
+"daily.section.subtitle" = "順番に行うと、自然に体が整います";
+"daily.nav.title" = "今日のヨガ";
+
+/* Meditation */
+"med.hero.tag" = "Meditation";
+"med.hero.title" = "静けさを、練習にする。";
+"med.hero.subtitle" = "数分でも呼吸へ戻ると、体の感覚が変わります。";
+"med.nav.title" = "瞑想";
+"med.timer.select" = "時間を選ぶ";
+"med.timer.min" = "%d分";
+"med.timer.guide" = "ガイド";
+"med.timer.benefits" = "期待できること";
+"med.timer.nav" = "瞑想ガイド";
+"med.timer.minutes" = "%d minutes";
+
+/* Chakra */
+"chakra.hero.tag" = "Energy Map";
+"chakra.hero.title" = "チャクラで体を読む";
+"chakra.hero.subtitle" = "ポーズの目的を、心と体の感覚でつなげます。";
+"chakra.section.title" = "7つのエネルギー";
+"chakra.section.subtitle" = "気になるテーマから練習を選べます";
+"chakra.nav.title" = "チャクラ";
+
+/* Office Yoga */
+"office.hero.tag" = "Desk Yoga";
+"office.hero.title" = "仕事中に、体を戻す。";
+"office.hero.subtitle" = "椅子の上でもできる、短いリセット習慣。";
+"office.section.title" = "デスクでできるケア";
+"office.section.subtitle" = "着替えず、汗をかかず、今すぐ始められます";
+"office.nav.title" = "仕事中ヨガ";
+
+/* Office routines */
+"office.r1.title" = "首と肩をほどく";
+"office.r1.time" = "2分";
+"office.r1.detail" = "耳と肩の距離を広げ、呼吸しながら首筋をゆるめます。";
+"office.r2.title" = "背骨リセット";
+"office.r2.time" = "3分";
+"office.r2.detail" = "椅子に座ったまま、丸める・伸ばす動きで背中を起こします。";
+"office.r3.title" = "目の疲れケア";
+"office.r3.time" = "1分";
+"office.r3.detail" = "視線を遠くへ移し、眉間とこめかみの力を抜きます。";
+"office.r4.title" = "午後の集中";
+"office.r4.time" = "4分";
+"office.r4.detail" = "胸を開き、呼吸を深めてもう一度集中へ戻ります。";

@@ -1,0 +1,89 @@
+/* Tabs */
+"tab.poses" = "Poses";
+"tab.symptoms" = "Care";
+"tab.daily" = "Today";
+"tab.meditation" = "Meditate";
+"tab.chakra" = "Chakra";
+"tab.office" = "Office";
+
+/* Pose Library */
+"pose.hero.tag" = "Yoga Atlas";
+"pose.hero.title" = "Read your body through breath.";
+"pose.hero.subtitle" = "Poses, meditation, chakras, and symptom care — all in one flow.";
+"pose.badge.poses" = "Poses";
+"pose.badge.symptoms" = "Care";
+"pose.badge.meditations" = "Meditate";
+"pose.section.title" = "Pose Library";
+"pose.section.subtitle" = "Foundational poses you can choose based on your goal";
+"pose.filter.all" = "All";
+"pose.search.prompt" = "Search poses";
+"pose.nav.title" = "Yoga Atlas";
+"pose.duration.min" = "%d min";
+
+/* Pose Detail */
+"detail.duration.label" = "Duration";
+"detail.intensity.label" = "Intensity";
+"detail.chakra.label" = "Chakra";
+"detail.benefits" = "Benefits";
+"detail.instructions" = "How To";
+"detail.cautions" = "Caution";
+
+/* Prescription */
+"rx.hero.tag" = "Care Guide";
+"rx.hero.title" = "Yoga for how you feel";
+"rx.hero.subtitle" = "Fatigue, tight shoulders, sleep. Gentle care matched to your day.";
+"rx.section.title" = "Condition Guide";
+"rx.section.subtitle" = "Start with the care you need — no pushing required";
+"rx.nav.title" = "Care";
+
+/* Daily Yoga */
+"daily.hero.tag" = "Today Practice";
+"daily.hero.title" = "Your 10-minute yoga";
+"daily.hero.subtitle" = "Morning breath, spine, balance, and rest in a short flow.";
+"daily.theme.title" = "Today's Theme";
+"daily.theme.body" = "Don't rush the breath — gently wake the spine";
+"daily.section.title" = "Sequence";
+"daily.section.subtitle" = "Follow the order and your body will naturally align";
+"daily.nav.title" = "Daily Yoga";
+
+/* Meditation */
+"med.hero.tag" = "Meditation";
+"med.hero.title" = "Practice stillness.";
+"med.hero.subtitle" = "Even a few minutes of returning to breath changes how your body feels.";
+"med.nav.title" = "Meditation";
+"med.timer.select" = "Choose duration";
+"med.timer.min" = "%d min";
+"med.timer.guide" = "Guide";
+"med.timer.benefits" = "What to expect";
+"med.timer.nav" = "Meditation Guide";
+"med.timer.minutes" = "%d minutes";
+
+/* Chakra */
+"chakra.hero.tag" = "Energy Map";
+"chakra.hero.title" = "Read the body through chakras";
+"chakra.hero.subtitle" = "Connect the purpose of poses with sensations in mind and body.";
+"chakra.section.title" = "7 Energy Centers";
+"chakra.section.subtitle" = "Pick a theme that interests you and start practicing";
+"chakra.nav.title" = "Chakra";
+
+/* Office Yoga */
+"office.hero.tag" = "Desk Yoga";
+"office.hero.title" = "Reset your body at work.";
+"office.hero.subtitle" = "Short reset habits you can do right in your chair.";
+"office.section.title" = "Desk-Friendly Care";
+"office.section.subtitle" = "No changing, no sweat — start right now";
+"office.nav.title" = "Office Yoga";
+
+/* Office routines */
+"office.r1.title" = "Release Neck & Shoulders";
+"office.r1.time" = "2 min";
+"office.r1.detail" = "Create space between ears and shoulders while breathing into the neck.";
+"office.r2.title" = "Spine Reset";
+"office.r2.time" = "3 min";
+"office.r2.detail" = "Round and extend the back while seated to wake up the spine.";
+"office.r3.title" = "Eye Fatigue Care";
+"office.r3.time" = "1 min";
+"office.r3.detail" = "Shift your gaze far away and release tension in the brow and temples.";
+"office.r4.title" = "Afternoon Focus";
+"office.r4.time" = "4 min";
+"office.r4.detail" = "Open the chest and deepen the breath to regain focus.";
