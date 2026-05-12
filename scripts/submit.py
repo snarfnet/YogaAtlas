@@ -9,13 +9,13 @@ import requests
 KEY_ID = 'WDXGY9WX55'
 ISSUER = '2be0734f-943a-4d61-9dc9-5d9045c46fec'
 BUNDLE_ID = 'com.tokyonasu.YogaAtlas'
-APP_VERSION = '1.3'
+APP_VERSION = '1.4'
 BUILD_NUMBER = sys.argv[1]
 SCREENSHOT_DIR = 'screenshots/appstore'
 
 SCREENSHOT_GROUPS = [
-    ('APP_IPHONE_67', ['iphone_1_home.png', 'iphone_2_prescription.png', 'iphone_3_meditation.png']),
-    ('APP_IPAD_PRO_3GEN_129', ['ipad_1_home.png', 'ipad_2_prescription.png', 'ipad_3_meditation.png']),
+    ('APP_IPHONE_67', ['iphone_67_1_home.png', 'iphone_67_2_prescription.png', 'iphone_67_3_meditation.png']),
+    ('APP_IPAD_PRO_3GEN_129', ['ipad_129_1_home.png', 'ipad_129_2_prescription.png', 'ipad_129_3_meditation.png']),
 ]
 
 WHATS_NEW = {
