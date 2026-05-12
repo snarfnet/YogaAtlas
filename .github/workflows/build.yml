@@ -106,7 +106,7 @@ jobs:
     - name: Patch Info.plist build number
       run: |
         /usr/libexec/PlistBuddy -c "Set :CFBundleIconName AppIcon" YogaAtlas/Info.plist || /usr/libexec/PlistBuddy -c "Add :CFBundleIconName string AppIcon" YogaAtlas/Info.plist
-        /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString 1.3" YogaAtlas/Info.plist || /usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string 1.3" YogaAtlas/Info.plist
+        /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString 1.4" YogaAtlas/Info.plist || /usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string 1.4" YogaAtlas/Info.plist
         sed -i "" "s|<string>\$(CURRENT_PROJECT_VERSION)</string>|<string>$BUILD_NUM</string>|" YogaAtlas/Info.plist
         sed -i "" "/<key>CFBundleVersion<\/key>/{n;s|<string>[^<]*</string>|<string>$BUILD_NUM</string>|;}" YogaAtlas/Info.plist
 
